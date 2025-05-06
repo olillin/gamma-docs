@@ -116,6 +116,21 @@ API:s.
 - [Allow List API](./ALLOW-LIST-API.md)
 - [Account Scaffold API](./ACCOUNT-SCAFFOLD-API.md)
 
+### API Responses
+
+Successful responses from the Gamma API are returned as
+[JSON](https://www.w3schools.com/whatis/whatis_json.asp) objects.
+
+Most unsuccessful responses (like authorization errors or requesting resources
+that don't exist) will redirect you to the Gamma login page at
+<https://auth.chalmers.it/login>. To catch this you can check if the response
+header `Content-Type` includes `text/html` or check for a redirect with a
+`302 Found` HTTP status code.
+
+> [!WARNING]  
+> Some unsuccessful responses will still respond with a `200 OK` HTTP status
+> since the page was returned successfully after the redirect.
+
 ### Types
 
 Types in this document are written as [TypeScript](https://www.typescriptlang.org/)
