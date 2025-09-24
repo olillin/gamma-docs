@@ -6,17 +6,19 @@ Get detailed information about users. Used by for instance
 [chalmers.it](https://chalmers.it) to get user and group information to display
 on corresponding pages.
 
-## Get user details
+## Endpoints Reference
+
+### Get user details
 
 `GET` `/users/{id}`
 
-### Parameters
+#### Parameters
 
 > | Name | Type     | Data Type | Description   |
 > |------|----------|-----------|---------------|
 > | id   | required | UUID      | The user UUID |
 
-### Responses
+#### Responses
 
 > | Status Code   | Content-Type       | Response                         |
 > |---------------|--------------------|----------------------------------|
@@ -26,3 +28,5 @@ on corresponding pages.
 </details>
 
 </details>
+
+`// TODO More endpoints`
