@@ -6,6 +6,12 @@ Get detailed information about users. Used by for instance
 [chalmers.it](https://chalmers.it) to get user and group information to display
 on corresponding pages.
 
+## Types Reference
+
+These are the types used by the Info API.
+
+### User
+
 ## Endpoints Reference
 
 ### Get user details

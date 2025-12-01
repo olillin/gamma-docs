@@ -1,4 +1,4 @@
-## The Gamma API
+# The Gamma API
 
 "The Gamma API" actually consists of 4 APIs with different purposes:
 
@@ -9,10 +9,14 @@
 
 See the more details about the different APIs in their respective documents.
 
-### API Responses
+## API Responses
+
+### Successful responses
 
 Successful responses from the Gamma API are returned in
 [JSON](https://www.w3schools.com/whatis/whatis_json.asp) format.
+
+### Unsuccessful responses
 
 Most unsuccessful responses (like authorization errors or requesting resources
 that don't exist) will redirect you to the Gamma login page at
