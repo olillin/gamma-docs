@@ -6,14 +6,13 @@ This document is is aimed at developers looking to use the Gamma API to
 provide their users with the ability to login with Gamma and/or to fetch data
 from the Gamma API.
 
-It was written by Cal (Oliver Lindell) to demistify how to use and integrate
-with Gamma after painstakingly figuring out how to do so without proper
+It was written by Cal to demistify how to use and integrate with Gamma after painstakingly figuring out how to do so without proper
 documentation.
 
 > [!WARNING]  
 > As I (Cal) am not a Gamma administrator I have limited ability to test and
-> document these features of Gamma. This documentation may therefore be limited
-> or inaccurate.
+> document the features of Gamma. Parts of the documentation may therefore be 
+> limited or inaccurate.
 
 ### Contributing
 
@@ -32,10 +31,10 @@ on some *chalmers.it* website.
 
 Gamma is the authentication and authorization service developed and used by the
 IT student division at Chalmers, with the long-term goal of also being adopted
-other student divisions at Chalmers.
+by other student divisions at Chalmers.
 
-It is hosted at <https://auth.chalmers.it> and the source code can be found
-[on GitHub](https://github.com/cthit/Gamma).
+It is hosted at <https://auth.chalmers.it> and the source code can be found at
+[cthit/Gamma](https://github.com/cthit/Gamma) on GitHub.
 
 ## Getting Started with Gamma Clients
 
@@ -48,6 +47,9 @@ documentation. If you are unfamiliar with it,
 as a good starting point.
 
 To access Gamma's APIs a client is required to identify your application.
+The client is how your service is represented in Gamma and is what is displayed
+to users when authorizing ("logging in") to
+your service.
 
 ### Types of clients
 
@@ -55,13 +57,17 @@ Gamma has two types of clients, *User clients* and *Official clients*.
 
 #### User Clients
 
-A *user client* can be created
+A *user client* can be created by anyone
+with a Gamma account but is limited
+compared to an official client. User clients can only access parts of the [Info API] and can only fetch data from
+users who have authorized the client.
+A warning is also shown to users when
+authorizing a user client with information
+about who the client belongs to.
 
 #### Official Clients
 
-A user client can only do so much and only has access to the Client API and part
-of the Info API. To do more you must be a Gamma administrator and create an
-*official client*.
+To do more you must be a Gamma administrator and create an *official client*. These clients have unrestricted access to the Gamma API and can fetch data from all users.
 
 ### The Client Page
 
