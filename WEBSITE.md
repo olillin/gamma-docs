@@ -10,7 +10,7 @@ This section describes how to create and manage a
 
 ### Creating a Gamma User Client
 
-> [!IMPORTANT]  
+> [!IMPORTANT]\
 > To create a client you must have a Gamma account, you can register yours
 > [on the website](https://auth.chalmers.it/activate-cid). Detailed instructions can be
 > found on [wikIT](https://wiki.chalmers.it/Gamma#HowTo:_Skapa_Gamma-konto).
@@ -24,16 +24,16 @@ first Gamma client:
 
    ![Navigation steps when creating a new Gamma client](./images/web/gamma-client/creation-navigation.jpg)
 
-2. Fill in your client details, here is an explanation of the different fields:
+1. Fill in your client details, here is an explanation of the different fields:
 
-   | Field               | Description                                                                                                                                                                                                            |
+   | Field | Description |
    |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Pretty name         | The name that is shown to your users when authorizing your client. Look at the [authorization page](#the-authorization-page) for reference.                                                                            |
+   | Pretty name | The name that is shown to your users when authorizing your client. Look at the [authorization page](#the-authorization-page) for reference. |
    | Swedish description | A short description in Swedish explaining what your client is for. Appears on the ["**Your accepted clients**"](https://auth.chalmers.it/me/accepted-clients) page for users with Swedish as their preferred language. |
    | English description | A short description in English explaining what your client is for. Appears on the ["**Your accepted clients**"](https://auth.chalmers.it/me/accepted-clients) page for users with English as their preferred language. |
-   | Redirect url        | This is the URL that users will be redirected to after authorizing your client as part of the OAuth flow. You can read more about redirect URLs [here](https://www.oauth.com/oauth2-servers/redirect-uris).            |
-   | Generate api key    | Whether or not an API key should be created for this client, this cannot be done after creating your client. To figure out if you need this, read the [API keys](#api-keys) section.                                   |
-   | Include email scope | Select this option if you need access to the email adress of your users. Read more in the [scopes](#scopes) section.                                                                                                   |
+   | Redirect url | This is the URL that users will be redirected to after authorizing your client as part of the OAuth flow. You can read more about redirect URLs [here](https://www.oauth.com/oauth2-servers/redirect-uris). |
+   | Generate api key | Whether or not an API key should be created for this client, this cannot be done after creating your client. To figure out if you need this, read the [API keys](#api-keys) section. |
+   | Include email scope | Select this option if you need access to the email adress of your users. Read more in the [scopes](#scopes) section. |
 
    ![Creating a new client](./images/web/gamma-client/creation-menu.jpg)
 

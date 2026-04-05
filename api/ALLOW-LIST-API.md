@@ -1,6 +1,6 @@
 # Allow List API
 
-**API Key Type**: `ALLOW_LIST`  
+**API Key Type**: `ALLOW_LIST`
 
 ## What is the allow list?
 
