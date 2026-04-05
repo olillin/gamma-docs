@@ -2,12 +2,12 @@
 
 ## About this Document
 
-This document is is aimed at developers looking to use the Gamma API to
-provide their users with the ability to login with Gamma and/or to fetch data
-from the Gamma API.
+This document is is aimed at developers looking to use the Gamma API to provide
+their users with the ability to login with Gamma and/or to fetch data from the
+Gamma API.
 
-It was written by Cal to demistify how to use and integrate with Gamma after painstakingly figuring out how to do so without proper
-documentation.
+It was written by Cal to demistify how to use and integrate with Gamma after
+painstakingly figuring out how to do so without proper documentation.
 
 > [!WARNING]\
 > As I (Cal) am not a Gamma administrator I have limited ability to test and
@@ -46,10 +46,9 @@ documentation. If you are unfamiliar with it,
 [this article](https://auth0.com/intro-to-iam/what-is-oauth-2) by Auth0 serves
 as a good starting point.
 
-To access Gamma's APIs a client is required to identify your application.
-The client is how your service is represented in Gamma and is what is displayed
-to users when authorizing ("logging in") to
-your service.
+To access Gamma's APIs a client is required to identify your application. The
+client is how your service is represented in Gamma and is what is displayed to
+users when authorizing ("logging in") to your service.
 
 ### Types of clients
 
@@ -57,17 +56,17 @@ Gamma has two types of clients, *User clients* and *Official clients*.
 
 #### User Clients
 
-A *user client* can be created by anyone
-with a Gamma account but is limited
-compared to an official client. User clients can only access parts of the [Info API] and can only fetch data from
-users who have authorized the client.
-A warning is also shown to users when
-authorizing a user client with information
+A *user client* can be created by anyone with a Gamma account but is limited
+compared to an official client. User clients can only access parts of the \[Info
+API\] and can only fetch data from users who have authorized the client. A
+warning is also shown to users when authorizing a user client with information
 about who the client belongs to.
 
 #### Official Clients
 
-To do more you must be a Gamma administrator and create an *official client*. These clients have unrestricted access to the Gamma API and can fetch data from all users.
+To do more you must be a Gamma administrator and create an *official client*.
+These clients have unrestricted access to the Gamma API and can fetch data from
+all users.
 
 ### The Client Page
 

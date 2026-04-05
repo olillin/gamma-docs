@@ -1,0 +1,6 @@
+# Markdown
+*.md            text
+
+# Nix
+flake.nix       text
+flake.lock      text

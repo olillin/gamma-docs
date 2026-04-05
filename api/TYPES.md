@@ -1,7 +1,8 @@
 # Types
 
-Types in this document are written as [TypeScript](https://www.typescriptlang.org/)
-types/interfaces as used in [GammaIT](https://www.npmjs.com/package/gammait).
+Types in this document are written as
+[TypeScript](https://www.typescriptlang.org/) types/interfaces as used in
+[GammaIT](https://www.npmjs.com/package/gammait).
 
 ## Types Reference
 
@@ -9,8 +10,8 @@ types/interfaces as used in [GammaIT](https://www.npmjs.com/package/gammait).
 
 All\* IDs used in requests to and responses from the Gamma API are version 4
 UUIDs. However, multiple alias types are used to provide type information about
-what the ID is for. For example the Client API `/users/{id}` expects a UUID
-that identifies a user, so the type `UserId` is used.
+what the ID is for. For example the Client API `/users/{id}` expects a UUID that
+identifies a user, so the type `UserId` is used.
 
 ```typescript
 import { UUID } from 'crypto'
