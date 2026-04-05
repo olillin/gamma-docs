@@ -46,8 +46,6 @@ The last services were migrated and Gamma v1 was shut down in March 2026.
 
 Gamma was rewritten and v2 was released in 2024[^7].
 
-______________________________________________________________________
-
 [^1]: Theo is still developing Gamma — https://github.com/cthit/Gamma/issues/941
 
 [^2]: https://github.com/cthit/auth
