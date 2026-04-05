@@ -492,8 +492,10 @@ Get the names of the [client authorities](<>) which the user belongs to.
 
 `// TODO: Create client authorities docs`
 
-> [!NOTE] Unlike groups the user does not need to have authorized the client in
-> order for the client to check their authorities.
+> [!NOTE]
+>
+> Unlike groups the user does not need to have authorized the client in order
+> for the client to check their authorities.
 
 **Return type**: String list
 

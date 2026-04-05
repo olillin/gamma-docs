@@ -9,7 +9,8 @@ Gamma API.
 It was written by Cal to demistify how to use and integrate with Gamma after
 painstakingly figuring out how to do so without proper documentation.
 
-> [!WARNING]\
+> [!WARNING]
+>
 > As I (Cal) am not a Gamma administrator I have limited ability to test and
 > document the features of Gamma. Parts of the documentation may therefore be
 > limited or inaccurate.
@@ -75,3 +76,8 @@ all users.
 > NOTE TO SELF: This section will include how to generate an authorization URL,
 > how to use this (simply redirecting users to it) and how to generate a token
 > from your code.
+
+## Further Reading
+
+- [API Reference](./api/API.md)
+- [History of Gamma](./HISTORY.md)

@@ -16,10 +16,14 @@
       inherit (pkgs) lib;
     in {
       devShells.default = pkgs.mkShell {
-        packages = with pkgs; [
-          mdformat
-          alejandra
-        ];
+        packages = with pkgs;
+          [
+            alejandra
+          ]
+          ++ (with python313Packages; [
+            mdformat
+            mdformat-footnote
+          ]);
 
         shellHook = ''
           export NIXSHELL="$NIXSHELL+gamma-docs"

@@ -10,7 +10,8 @@ This section describes how to create and manage a
 
 ### Creating a Gamma User Client
 
-> [!IMPORTANT]\
+> [!IMPORTANT]
+>
 > To create a client you must have a Gamma account, you can register yours
 > [on the website](https://auth.chalmers.it/activate-cid). Detailed instructions
 > can be found on
