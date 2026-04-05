@@ -15,24 +15,12 @@ to as a "user of the client".
 ## Table of Contents
 
 1. [Types](#types)
-   1. [User](#user) \<<\<<\<<< Updated upstream
+   1. [User](#user)
    2. [Group](#group)
    3. [Group with Post](#group-with-post)
    4. [Post](#post)
    5. [Super group](#super-group)
 2. [Endpoints Reference](#endpoints-reference)
-   01. [GET /users](#get-users)
-   02. [GET /users/:id](#get-usersid)
-   03. [GET /groups](#get-groups)
-   04. [GET /groups/for/:id](#get-groupsforid)
-   05. [GET /superGroups](#get-supergroups)
-   06. [GET /authorities](#get-authorities)
-   07. [GET /authorities/for/:id](#get-authoritiesforid) =======
-   08. [Group](#group)
-   09. [Group with Post](#group-with-post)
-   10. [Post](#post)
-   11. [Super group](#super-group)
-3. [Endpoints Reference](#endpoints-reference)
    1. [GET /users](#get-users)
    2. [GET /users/:id](#get-usersid)
    3. [GET /groups](#get-groups)
@@ -40,8 +28,6 @@ to as a "user of the client".
    5. [GET /superGroups](#get-supergroups)
    6. [GET /authorities](#get-authorities)
    7. [GET /authorities/for/:id](#get-authoritiesforid)
-
-> > > > > > > Stashed changes
 
 ## Types
 
