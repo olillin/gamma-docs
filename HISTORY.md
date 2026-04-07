@@ -35,16 +35,30 @@ hosted at <https://beta-account.chalmers.it>[^5].
 The last services were finally migrated from LDAP on May 21st 2020[^4][^6] and
 Beta was deprecated.
 
-## Gamma v1 — 2018-2026
+## Gamma
+
+### Gamma v1 — 2018-2026
 
 During [digIT'18](https://digit.chalmers.it/members/2018) a new account system
 was developed. This followed the trend and subsequently named Gamma.
 
 The last services were migrated and Gamma v1 was shut down in March 2026.
 
-## Gamma v2 — 2024–Today
+### Gamma v2 — 2024–Today
 
 Gamma was rewritten and v2 was released in 2024[^7].
+
+### Gamma v3
+
+Planning of Gamma v3 started in February 2024 as the
+[v3 milestone](https://github.com/cthit/Gamma/milestone/19) on the Gamma GitHub
+repository.
+
+### Gamma v4
+
+Planning of Gamma v4 started in February 2026 as the
+[v4 milestone](https://github.com/cthit/Gamma/milestone/20) on the Gamma GitHub
+repository. It is planned to be released a year after Gamma v3.
 
 [^1]: Theo is still developing Gamma — https://github.com/cthit/Gamma/issues/941
 
