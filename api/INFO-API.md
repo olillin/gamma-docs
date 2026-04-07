@@ -1,6 +1,6 @@
 # Info API Reference
 
-Get detailed information about users. Used by for instance
+Get detailed information about users and groups. Used by, for example,
 [chalmers.it](https://chalmers.it) to get user and group information to display
 on corresponding pages.
 
@@ -9,29 +9,504 @@ on corresponding pages.
 | API Key Type   | `INFO`                                                                                                                                                |
 | API Controller | [InfoV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/info/InfoV1ApiController.java) |
 
-## Types Reference
+## Table of Contents
 
-These are the types used by the Info API.
+1. [Types](#types)
+   1. [User with Groups](#user-with-groups)
+   2. [User](#user)
+   3. [Group with Post](#group-with-post)
+   4. [Super Group](#super-group)
+   5. [Blob](#blob)
+   6. [Blob Super Group](#blob-super-group)
+   7. [Blob Member](#blob-member)
+2. [Endpoints Reference](#endpoints-reference)
+   1. [GET /users/{id}](#get-usersid)
+   2. [GET /blob](#get-blob)
+
+## Types
+
+These are the types used in the Info API.
+
+### User with Groups
+
+```yaml
+user: User
+groups: GroupWithPost[]
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+    "user": {
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "id": "2f63a363-af22-480d-be49-531c1831933c",
+        "acceptanceYear": 2025
+    },
+    "groups": [
+        {
+            "group": {
+                "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+                "version": 18,
+                "name": "prit25",
+                "prettyName": "P.R.I.T. 25",
+                "superGroup": {
+                    "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+                    "version": 1,
+                    "name": "prit",
+                    "prettyName": "P.R.I.T.",
+                    "type": "committee",
+                    "svDescription": "PR och rustmästeri",
+                    "enDescription": "PR and premises maintenance"
+                },
+            },
+            "post": {
+                "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                "version": 30,
+                "svName": "MaterialChef",
+                "enName": "MaterialChef",
+                "emailPrefix": "material",
+                "order": 11
+            }
+        }
+    ]
+}
+```
+
+</details>
 
 ### User
 
+```yaml
+id: UserId
+cid: string
+nick: string
+firstName: string
+lastName: string
+acceptanceYear: int
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+    "id": "2f63a363-af22-480d-be49-531c1831933c",
+    "cid": "janed",
+    "nick": "Dough",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "acceptanceYear": 2025
+}
+```
+
+</details>
+
+### Group with Post
+
+```yaml
+group:
+    id: GroupId
+    version: int
+    name: string
+    prettyName: string
+    superGroup: SuperGroup
+post:
+    id: PostId
+    version: int
+    svName: string
+    enName: string
+    emailPrefix: string
+    order: int
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+    "group": {
+        "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
+		"version": 18,
+        "name": "prit26",
+        "prettyName": "P.R.I.T. 26",
+        "superGroup": {
+            "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+            "name": "prit",
+            "prettyName": "P.R.I.T.",
+            "type": "committee",
+            "svDescription": "PR och rustmästeri",
+            "enDescription": "PR and premises maintenance"
+        }
+    },
+    "post": {
+        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+        "version": 30,
+        "svName": "MaterialChef",
+        "enName": "MaterialChef",
+        "emailPrefix": "material",
+        "order": 11
+    }
+}
+```
+
+</details>
+
+### Super Group
+
+```yaml
+id: SuperGroupId
+version: int
+name: string
+prettyName: string
+type: "alumni" | "committee" | "functionaries" | "society"
+svDescription: string
+enDescription: string
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+	"id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+	"name": "prit",
+	"prettyName": "P.R.I.T.",
+	"type": "committee",
+	"svDescription": "PR och rustmästeri",
+	"enDescription": "PR and premises maintenance"
+}
+```
+
+</details>
+
+### Blob
+
+```yaml
+type: "alumni" | "committee" | "functionaries" | "society"
+superGroup: BlobSuperGroup[]
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+    "type": "committee",
+    "superGroups": [
+        {
+            "superGroup": {
+                "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+                "name": "prit",
+                "prettyName": "P.R.I.T.",
+                "type": "committee",
+                "svDescription": "PR och rustmästeri",
+                "enDescription": "PR and premises maintenance"
+            },
+            "hasBanner": true,
+            "hasAvatar": true,
+            "members": [
+                {
+                    "user":  {
+                        "id": "2f63a363-af22-480d-be49-531c1831933c",
+                        "cid": "bloggsj",
+                        "nick": "Bloggan",
+                        "firstName": "Johnny",
+                        "lastName": "Bloggs",
+                        "acceptanceYear": 2025
+                    },
+                    "post": {
+                        "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+                        "svName": "Medlem",
+                        "enName": "Member",
+                        "emailPrefix": ""
+                    },
+                    "unofficialPostName": "MatChef"
+                },
+                {
+                    "user": {
+                        "cid": "janed",
+                        "nick": "Dough",
+                        "firstName": "Jane",
+                        "lastName": "Doe",
+                        "id": "2f63a363-af22-480d-be49-531c1831933c",
+                        "acceptanceYear": 2025
+                    },
+                    "post": {
+                        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                        "svName": "MaterialChef",
+                        "enName": "MaterialChef",
+                        "emailPrefix": "material",
+                    },
+                    "unofficialPostName": ""
+                }
+            ]
+        }
+    ]
+}
+```
+
+</details>
+
+### Blob Super Group
+
+```yaml
+superGroup:
+    id: SuperGroupId
+    name: string
+    prettyName: string
+    type: "alumni" | "committee" | "functionaries" | "society"
+    svDescription: string
+    enDescription: string
+hasBanner: boolean
+hasAvatar: boolean
+members: BlobMember[]
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+	"superGroup": {
+		"id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+		"name": "prit",
+		"prettyName": "P.R.I.T.",
+		"type": "committee",
+		"svDescription": "PR och rustmästeri",
+		"enDescription": "PR and premises maintenance"
+	},
+	"hasBanner": true,
+	"hasAvatar": true,
+	"members": [
+		{
+			"user":  {
+				"id": "2f63a363-af22-480d-be49-531c1831933c",
+				"cid": "bloggsj",
+				"nick": "Bloggan",
+				"firstName": "Johnny",
+				"lastName": "Bloggs",
+				"acceptanceYear": 2025
+			},
+			"post": {
+				"id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+				"svName": "Medlem",
+				"enName": "Member",
+				"emailPrefix": ""
+			},
+			"unofficialPostName": "MatChef"
+		},
+		{
+			"user": {
+				"cid": "janed",
+				"nick": "Dough",
+				"firstName": "Jane",
+				"lastName": "Doe",
+				"id": "2f63a363-af22-480d-be49-531c1831933c",
+				"acceptanceYear": 2025
+			},
+			"post": {
+				"id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+				"svName": "MaterialChef",
+				"enName": "MaterialChef",
+				"emailPrefix": "material",
+			},
+			"unofficialPostName": ""
+		}
+	]
+}
+```
+
+</details>
+
+### Blob Member
+
+```yaml
+user: User
+post:
+    id: PostId
+    svName: string
+    enName: string
+    emailPrefix: string
+unofficialPostName: string
+```
+
+<details>
+<summary>Example</summary>
+
+```json
+{
+	"user":  {
+		"id": "2f63a363-af22-480d-be49-531c1831933c",
+		"cid": "bloggsj",
+		"nick": "Bloggan",
+		"firstName": "Johnny",
+		"lastName": "Bloggs",
+		"acceptanceYear": 2025
+	},
+	"post": {
+		"id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+		"svName": "Medlem",
+		"enName": "Member",
+		"emailPrefix": ""
+	},
+	"unofficialPostName": "MatChef"
+}
+```
+
+</details>
+
 ## Endpoints Reference
 
-### Get user details
+The info API is currently hosted at <https://auth.chalmers.it/api/info/v1> and
+all endpoints in this section are relative to this URL.
 
-`GET` `/users/{id}`
+### GET /users/{id}
+
+Get information about a specific user.
+
+**Return type**: [User with Groups](#user-with-groups)
 
 #### Parameters
 
-| Name | Type     | Data Type | Description   |
-| ---- | -------- | --------- | ------------- |
-| id   | required | UUID      | The user UUID |
+| Name | Type | Data Type | Description   |     |
+| ---- | ---- | --------- | ------------- | --- |
+| id   | path | UserId    | The user UUID |     |
 
-#### Responses
+#### Example
 
-| Status Code | Content-Type       | Response                                        |
-| ----------- | ------------------ | ----------------------------------------------- |
-| `200`       | `application/json` | [User Type 1](./README.md#user-type-1-info-api) |
-| `302`       | N/A                | N/A                                             |
+Request: `GET /users/2f63a363-af22-480d-be49-531c1831933c`
 
-`// TODO More endpoints`
+<details>
+<summary>Response</summary>
+
+```json
+{
+    "user": {
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "id": "2f63a363-af22-480d-be49-531c1831933c",
+        "acceptanceYear": 2025
+    },
+    "groups": [
+        {
+            "group": {
+                "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+                "name": "prit25",
+                "prettyName": "P.R.I.T. 25",
+                "superGroup": {
+                    "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+                    "version": 1,
+                    "name": "prit",
+                    "prettyName": "P.R.I.T.",
+                    "type": "committee",
+                    "svDescription": "PR och rustmästeri",
+                    "enDescription": "PR and premises maintenance"
+                },
+                "version": 18
+            },
+            "post": {
+                "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                "version": 30,
+                "svName": "MaterialChef",
+                "enName": "MaterialChef",
+                "emailPrefix": "material",
+                "order": 11
+            }
+        }
+    ]
+}
+```
+
+</details>
+
+### GET /blob
+
+Get the full detailed information about all super groups.
+
+**Return type**: [Blob](#blob) list
+
+#### Example
+
+Request: `GET /blob`
+
+<details>
+<summary>Response</summary>
+
+```json
+[
+    {
+        "type": "alumni",
+        "superGroups": []
+    },
+    {
+        "type": "committee",
+        "superGroups": [
+            {
+                "superGroup": {
+                    "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+                    "name": "prit",
+                    "prettyName": "P.R.I.T.",
+                    "type": "committee",
+                    "svDescription": "PR och rustmästeri",
+                    "enDescription": "PR and premises maintenance"
+                },
+                "hasBanner": true,
+                "hasAvatar": true,
+                "members": [
+                    {
+                        "user":  {
+                            "id": "2f63a363-af22-480d-be49-531c1831933c",
+                            "cid": "bloggsj",
+                            "nick": "Bloggan",
+                            "firstName": "Johnny",
+                            "lastName": "Bloggs",
+                            "acceptanceYear": 2025
+                        },
+                        "post": {
+                            "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+                            "svName": "Medlem",
+                            "enName": "Member",
+                            "emailPrefix": ""
+                        },
+                        "unofficialPostName": "MatChef"
+                    },
+                    {
+                        "user": {
+                            "cid": "janed",
+                            "nick": "Dough",
+                            "firstName": "Jane",
+                            "lastName": "Doe",
+                            "id": "2f63a363-af22-480d-be49-531c1831933c",
+                            "acceptanceYear": 2025
+                        },
+                        "post": {
+                            "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                            "svName": "MaterialChef",
+                            "enName": "MaterialChef",
+                            "emailPrefix": "material",
+                        },
+                        "unofficialPostName": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "functionaries",
+        "superGroups": []
+    },
+    {
+        "type": "society",
+        "superGroups": []
+    }
+]
+```
+
+</details>

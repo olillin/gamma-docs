@@ -79,5 +79,5 @@ all users.
 
 ## Further Reading
 
-- [API Reference](./api/API.md)
+- [API Reference](api/README.md)
 - [History of Gamma](./HISTORY.md)
