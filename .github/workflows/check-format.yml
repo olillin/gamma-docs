@@ -19,7 +19,7 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v25
       - name: Check Markdown formatting
-        run: nix run nixpkgs#mdformat -- --check .
+        run: nix develop --command mdformat --check .
   check-nix:
     runs-on: ubuntu-latest
     steps:
@@ -27,5 +27,5 @@ jobs:
       - name: Install Nix
         uses: cachix/install-nix-action@v25
       - name: Check Nix formatting
-        run: nix run nixpkgs#alejandra -- --check .
+        run: nix develop --command alejandra --check .
 
