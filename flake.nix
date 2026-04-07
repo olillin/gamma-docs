@@ -2,7 +2,7 @@
   description = "Development shell for gamma-docs with formatters";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
@@ -22,6 +22,7 @@
           ]
           ++ (with python313Packages; [
             mdformat
+            mdformat-tables
             mdformat-footnote
           ]);
 

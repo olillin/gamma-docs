@@ -1,9 +1,12 @@
 # Client API Reference
 
-**API Key Type**: `CLIENT`
-
 Get information about users who have authorized the client, hereafter referred
 to as a "user of the client".
+
+| Name           | Value                                                                                                                                                       |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API Key Type   | `CLIENT`                                                                                                                                                    |
+| API Controller | [ClientApiV1Controller](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/client/ClientApiV1Controller.java) |
 
 > [!NOTE]
 >
@@ -14,20 +17,40 @@ to as a "user of the client".
 
 ## Table of Contents
 
-1. [Types](#types)
+1. [Client Authorities](#client-authorities)
+2. [Types](#types)
    1. [User](#user)
    2. [Group](#group)
    3. [Group with Post](#group-with-post)
    4. [Post](#post)
    5. [Super group](#super-group)
-2. [Endpoints Reference](#endpoints-reference)
+3. [Endpoints Reference](#endpoints-reference)
    1. [GET /users](#get-users)
-   2. [GET /users/:id](#get-usersid)
+   2. [GET /users/{id}](#get-usersid)
    3. [GET /groups](#get-groups)
-   4. [GET /groups/for/:id](#get-groupsforid)
+   4. [GET /groups/for/{id}](#get-groupsforid)
    5. [GET /superGroups](#get-supergroups)
    6. [GET /authorities](#get-authorities)
-   7. [GET /authorities/for/:id](#get-authoritiesforid)
+   7. [GET /authorities/for/{id}](#get-authoritiesforid)
+
+## Client Authorities
+
+Client authorities are a way to designate certain super groups or users special
+"authorities" in the client without hardcoding ids or names. Client authorities
+are, for example, used by BookIT to give the "admin" authority to users who
+should be able to manage bookings and rules[^1].
+
+A client authority is simply a string label added to certain users. Using the
+client API it is possible to get a list of client authorities a user has. The
+authority will be included in the list if:
+
+- The user is in a group which belongs to any of the super groups which have
+  been added to the client authority.
+- The user is one of the users which have been added to the client authority.
+
+See how to manage client authorities in the
+[Creating client authorities](../WEBSITE.md#creating-client-authorities) section
+of the website documentation.
 
 ## Types
 
@@ -36,14 +59,12 @@ to as a "user of the client".
 Describes a user of the client.
 
 ```yaml
-{
-    cid: string
-    nick: string
-    firstName: string
-    lastName: string
-    id: UUID
-    acceptanceYear: int
-}
+cid: string
+nick: string
+firstName: string
+lastName: string
+id: UUID
+acceptanceYear: int
 ```
 
 <details>
@@ -67,12 +88,10 @@ Describes a user of the client.
 Describes a Gamma group.
 
 ```yaml
-{
-    id: UUID
-    name: string
-    prettyName: string
-    superGroup: SuperGroup
-}
+id: UUID
+name: string
+prettyName: string
+superGroup: SuperGroup
 ```
 
 <details>
@@ -99,13 +118,11 @@ Describes a Gamma group.
 ### Group with Post
 
 ```yaml
-{
-    id: UUID
-    name: string
-    prettyName: string
-    superGroup: SuperGroup
-	post: Post
-}
+id: UUID
+name: string
+prettyName: string
+superGroup: SuperGroup
+post: Post
 ```
 
 <details>
@@ -138,12 +155,10 @@ Describes a Gamma group.
 ### Post
 
 ```yaml
-{
-    id: UUID
-    version: int
-    svName: string
-    enName: string
-}
+id: UUID
+version: int
+svName: string
+enName: string
 ```
 
 <details>
@@ -165,14 +180,12 @@ Describes a Gamma group.
 Describes a Gamma super group.
 
 ```yaml
-{
-    id: UUID
-    name: string
-    prettyName: string
-    type: "alumni" | "committee" | "functionaries" | "society"
-    svDescription: string
-    enDescription: string
-}
+id: UUID
+name: string
+prettyName: string
+type: "alumni" | "committee" | "functionaries" | "society"
+svDescription: string
+enDescription: string
 ```
 
 <details>
@@ -232,7 +245,7 @@ Request: `GET /users`
 
 </details>
 
-### GET /users/:id
+### GET /users/{id}
 
 Get a user of the client.
 
@@ -334,7 +347,7 @@ Request: `GET /groups`
 
 </details>
 
-### GET /groups/for/:id
+### GET /groups/for/{id}
 
 Get all groups which a user of the client is in.
 
@@ -450,9 +463,7 @@ Request: `GET /superGroups`
 
 ### GET /authorities
 
-Get the names of all [client authorities](<>) on the client.
-
-`// TODO: Create client authorities docs`
+Get the names of all [client authorities](#client-authorities) on the client.
 
 **Return type**: String list
 
@@ -472,11 +483,10 @@ Request: `GET /authorities`
 
 </details>
 
-### GET /authorities/for/:id
+### GET /authorities/for/{id}
 
-Get the names of the [client authorities](<>) which the user belongs to.
-
-`// TODO: Create client authorities docs`
+Get the names of the [client authorities](#client-authorities) which the user
+belongs to.
 
 > [!NOTE]
 >
@@ -499,3 +509,6 @@ Request: `GET /authorities/2f63a363-af22-480d-be49-531c1831933c`
 ```
 
 </details>
+
+[^1]: `is_admin` property in `backend/src/index.ts`. cthit/bookIT-node on GitHub —
+    https://github.com/cthit/bookIT-node/blame/2378a279d047edffb0d1e967904e9fcf3824fa17/backend/src/index.ts#L46
