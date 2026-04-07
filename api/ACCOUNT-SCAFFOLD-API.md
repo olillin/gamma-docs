@@ -1,10 +1,12 @@
 # Account Scaffold API
 
-**API Key Type**: `ACCOUNT_SCAFFOLD` **API Controller**:
-[AccountScaffoldV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/accountscaffold/AccountScaffoldV1ApiController.java)
-
 Used by, for example, [cthit/SyncIT](https://github.com/cthit/SyncIT) to sync
 external accounts like GSuite and Bitwarden with Gamma.
+
+| Name           | Value                                                                                                                                                                                  |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API Key Type   | `ACCOUNT_SCAFFOLD`                                                                                                                                                                     |
+| API Controller | [AccountScaffoldV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/accountscaffold/AccountScaffoldV1ApiController.java) |
 
 ## Table of Contents
 
