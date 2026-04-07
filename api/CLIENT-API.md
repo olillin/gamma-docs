@@ -11,9 +11,8 @@ to as a "user of the client".
 > [!NOTE]
 >
 > The `email` scope does *not* make e-mails visible in the client API. Use the
-> OpenID or [Account Scaffold](./ACCOUNT-SCAFFOLD-API.md) API instead.
-
-`// TODO: Link to OpenID API`
+> [OpenID](./OPENID.md) or [Account Scaffold](./ACCOUNT-SCAFFOLD-API.md) API
+> instead.
 
 ## Table of Contents
 
