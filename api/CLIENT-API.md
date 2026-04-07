@@ -11,7 +11,7 @@ to as a "user of the client".
 > [!NOTE]
 >
 > The `email` scope does *not* make e-mails visible in the client API. Use the
-> OpenID API instead.
+> OpenID or [Account Scaffold](./ACCOUNT-SCAFFOLD-API.md) API instead.
 
 `// TODO: Link to OpenID API`
 
@@ -54,16 +54,18 @@ of the website documentation.
 
 ## Types
 
+These are the types used in the Client API.
+
 ### User
 
 Describes a user of the client.
 
 ```yaml
+id: UserId
 cid: string
 nick: string
 firstName: string
 lastName: string
-id: UUID
 acceptanceYear: int
 ```
 
@@ -72,12 +74,12 @@ acceptanceYear: int
 
 ```json
 {
-	"cid": "janed",
-	"nick": "Dough",
-	"firstName": "Jane",
-	"lastName": "Doe",
-	"id": "2f63a363-af22-480d-be49-531c1831933c",
-	"acceptanceYear": 2025
+    "id": "2f63a363-af22-480d-be49-531c1831933c",
+    "cid": "janed",
+    "nick": "Dough",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "acceptanceYear": 2025
 }
 ```
 
@@ -88,7 +90,7 @@ acceptanceYear: int
 Describes a Gamma group.
 
 ```yaml
-id: UUID
+id: GroupId
 name: string
 prettyName: string
 superGroup: SuperGroup
@@ -99,17 +101,17 @@ superGroup: SuperGroup
 
 ```json
 {
-	"id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
-	"name": "prit26",
-	"prettyName": "P.R.I.T. 26",
-	"superGroup": {
-		"id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-		"name": "prit",
-		"prettyName": "P.R.I.T.",
-		"type": "committee",
-		"svDescription": "PR och rustmästeri",
-		"enDescription": "PR and premises maintenance"
-	}
+    "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
+    "name": "prit26",
+    "prettyName": "P.R.I.T. 26",
+    "superGroup": {
+        "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+        "name": "prit",
+        "prettyName": "P.R.I.T.",
+        "type": "committee",
+        "svDescription": "PR och rustmästeri",
+        "enDescription": "PR and premises maintenance"
+    }
 }
 ```
 
@@ -118,7 +120,7 @@ superGroup: SuperGroup
 ### Group with Post
 
 ```yaml
-id: UUID
+id: GroupId
 name: string
 prettyName: string
 superGroup: SuperGroup
@@ -130,23 +132,23 @@ post: Post
 
 ```json
 {
-	"id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
-	"name": "prit25",
-	"prettyName": "P.R.I.T. 25",
-	"superGroup": {
-		"id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
-		"name": "sprit",
-		"prettyName": "S.P.R.I.T.",
-		"type": "alumni",
-		"svDescription": "",
-		"enDescription": ""
-	},
-	"post": {
-		"id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-		"version": 30,
-		"svName": "MaterialChef",
-		"enName": "MaterialChef"
-	}
+    "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+    "name": "prit25",
+    "prettyName": "P.R.I.T. 25",
+    "superGroup": {
+        "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
+        "name": "sprit",
+        "prettyName": "S.P.R.I.T.",
+        "type": "alumni",
+        "svDescription": "",
+        "enDescription": ""
+    },
+    "post": {
+        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+        "version": 30,
+        "svName": "MaterialChef",
+        "enName": "MaterialChef"
+    }
 }
 ```
 
@@ -155,7 +157,7 @@ post: Post
 ### Post
 
 ```yaml
-id: UUID
+id: PostId
 version: int
 svName: string
 enName: string
@@ -166,21 +168,21 @@ enName: string
 
 ```json
 {
-	"id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
-	"version": 30,
-	"svName": "Medlem",
-	"enName": "Member"
+    "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+    "version": 30,
+    "svName": "Medlem",
+    "enName": "Member"
 }
 ```
 
 </details>
 
-### Super group
+### Super Group
 
 Describes a Gamma super group.
 
 ```yaml
-id: UUID
+id: SuperGroupId
 name: string
 prettyName: string
 type: "alumni" | "committee" | "functionaries" | "society"
@@ -193,12 +195,12 @@ enDescription: string
 
 ```json
 {
-	"id": "dea3493e-66e4-44b2-a657-cb57a6840dab",
-	"name": "digit",
-	"prettyName": "digIT",
-	"type": "committee",
-	"svDescription": "Digitala system",
-	"enDescription": "Digital systems"
+    "id": "dea3493e-66e4-44b2-a657-cb57a6840dab",
+    "name": "digit",
+    "prettyName": "digIT",
+    "type": "committee",
+    "svDescription": "Digitala system",
+    "enDescription": "Digital systems"
 }
 ```
 
@@ -224,22 +226,22 @@ Request: `GET /users`
 
 ```json
 [
-	{
-		"cid": "janed",
-		"nick": "Dough",
-		"firstName": "Jane",
-		"lastName": "Doe",
-		"id": "2f63a363-af22-480d-be49-531c1831933c",
-		"acceptanceYear": 2025
-	},
-	{
-		"cid": "smithj",
-		"nick": "Smithed",
-		"firstName": "John",
-		"lastName": "Smith",
-		"id": "9acb43d4-42f3-4f9d-9f37-bc156463e1a5",
-		"acceptanceYear": 2026
-	}
+    {
+        "id": "2f63a363-af22-480d-be49-531c1831933c",
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "acceptanceYear": 2025
+    },
+    {
+        "id": "9acb43d4-42f3-4f9d-9f37-bc156463e1a5",
+        "cid": "smithj",
+        "nick": "Smithed",
+        "firstName": "John",
+        "lastName": "Smith",
+        "acceptanceYear": 2026
+    }
 ]
 ```
 
@@ -250,6 +252,12 @@ Request: `GET /users`
 Get a user of the client.
 
 **Return type**: [User](#user)
+
+#### Parameters
+
+| Name | Type | Data Type | Description   |
+| ---- | ---- | --------- | ------------- |
+| id   | path | UserId    | The user UUID |
 
 #### Errors
 
@@ -264,12 +272,12 @@ Request: `GET /users/2f63a363-af22-480d-be49-531c1831933c`
 
 ```json
 {
-	"cid": "janed",
-	"nick": "Dough",
-	"firstName": "Jane",
-	"lastName": "Doe",
-	"id": "2f63a363-af22-480d-be49-531c1831933c",
-	"acceptanceYear": 2025
+    "id": "2f63a363-af22-480d-be49-531c1831933c",
+    "cid": "janed",
+    "nick": "Dough",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "acceptanceYear": 2025
 }
 ```
 
@@ -290,7 +298,7 @@ Request: `GET /groups`
 
 ```json
 [
-	{
+    {
         "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
         "name": "prit25",
         "prettyName": "P.R.I.T. 25",
@@ -303,7 +311,7 @@ Request: `GET /groups`
             "enDescription": ""
         }
     },
-	{
+    {
         "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
         "name": "prit26",
         "prettyName": "P.R.I.T. 26",
@@ -316,7 +324,7 @@ Request: `GET /groups`
             "enDescription": "PR and premises maintenance"
         }
     },
-	{
+    {
         "id": "64c623a0-31ce-4519-9fbf-67f207f88286",
         "name": "fikit25",
         "prettyName": "FikIT 25",
@@ -329,7 +337,7 @@ Request: `GET /groups`
             "enDescription": ""
         }
     },
-	{
+    {
         "id": "59c01004-a961-499c-96ef-1a3785f9ddd8",
         "name": "samlag25",
         "prettyName": "SAMLAG 25",
@@ -352,6 +360,12 @@ Request: `GET /groups`
 Get all groups which a user of the client is in.
 
 **Return type**: [Group with Post](#group-with-post) list
+
+#### Parameters
+
+| Name | Type | Data Type | Description   |
+| ---- | ---- | --------- | ------------- |
+| id   | path | UserId    | The user UUID |
 
 #### Errors
 
@@ -415,6 +429,12 @@ Get all Gamma super groups.
 
 **Return type**: [Super group](#super-group) list
 
+#### Parameters
+
+| Name | Type | Data Type | Description   |
+| ---- | ---- | --------- | ------------- |
+| id   | path | UserId    | The user UUID |
+
 #### Example
 
 Request: `GET /superGroups`
@@ -424,38 +444,38 @@ Request: `GET /superGroups`
 
 ```json
 [
-	{
-		"id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
-		"name": "sprit",
-		"prettyName": "S.P.R.I.T.",
-		"type": "alumni",
-		"svDescription": "",
-		"enDescription": ""
+    {
+        "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
+        "name": "sprit",
+        "prettyName": "S.P.R.I.T.",
+        "type": "alumni",
+        "svDescription": "",
+        "enDescription": ""
     },
-	{
-		"id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-		"name": "prit",
-		"prettyName": "P.R.I.T.",
-		"type": "committee",
-		"svDescription": "PR och rustmästeri",
-		"enDescription": "PR and premises maintenance"
+    {
+        "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+        "name": "prit",
+        "prettyName": "P.R.I.T.",
+        "type": "committee",
+        "svDescription": "PR och rustmästeri",
+        "enDescription": "PR and premises maintenance"
     },
-	{
-		"id": "f5dd9c81-838b-49ec-bab4-a831331c4dc2",
-		"name": "fikit",
-		"prettyName": "FikIT",
-		"type": "society",
-		"svDescription": "",
-		"enDescription": ""
+    {
+        "id": "f5dd9c81-838b-49ec-bab4-a831331c4dc2",
+        "name": "fikit",
+        "prettyName": "FikIT",
+        "type": "society",
+        "svDescription": "",
+        "enDescription": ""
     },
-	{
-		"id": "2d75da98-c4a0-43af-9067-61320c891185",
-		"name": "samlag",
-		"prettyName": "Skol-Avslutnings-Musik-Ledar-Arbets-Gruppen",
-		"type": "functionaries",
-		"svDescription": "Skolavlutning",
-		"enDescription": "End of year choir"
-	}
+    {
+        "id": "2d75da98-c4a0-43af-9067-61320c891185",
+        "name": "samlag",
+        "prettyName": "Skol-Avslutnings-Musik-Ledar-Arbets-Gruppen",
+        "type": "functionaries",
+        "svDescription": "Skolavlutning",
+        "enDescription": "End of year choir"
+    }
 ]
 ```
 
@@ -494,6 +514,12 @@ belongs to.
 > for the client to check their authorities.
 
 **Return type**: String list
+
+#### Parameters
+
+| Name | Type | Data Type | Description   |
+| ---- | ---- | --------- | ------------- |
+| id   | path | UserId    | The user UUID |
 
 #### Example
 
