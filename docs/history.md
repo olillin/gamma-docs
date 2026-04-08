@@ -1,9 +1,13 @@
 # History of Gamma
 
-!!! warning | Incomplete page
+!!! warning "Incomplete page"
 
-This page is still incomplete and many details are missing. Contributions are
-much appreciated!
+    This page is still incomplete and many details are missing. Contributions are
+    much appreciated!
+
+[TOC]
+
+## Introduction
 
 The current account system, Gamma v2, is the fourth iteration of an account
 system for the Software Engineering Student Division (IT) at Chalmers. It was
@@ -60,7 +64,7 @@ Planning of Gamma v4 started in February 2026 as the
 [v4 milestone](https://github.com/cthit/Gamma/milestone/20) on the Gamma GitHub
 repository. It is planned to be released a year after Gamma v3.
 
-[^1]: Theo is still developing Gamma — https://github.com/cthit/Gamma/issues/941
+[^1]: Theo is still developing Gamma — <https://github.com/cthit/Gamma/issues/941>
 
 [^2]: <https://github.com/cthit/auth>
 

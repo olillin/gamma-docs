@@ -1,4 +1,4 @@
-# Info API Reference
+# Info API
 
 Get detailed information about users and groups. Used by, for example,
 [chalmers.it](https://chalmers.it) to get user and group information to display
@@ -7,6 +7,7 @@ on corresponding pages.
 | Name           | Value                                                                                                                                                 |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API Key Type   | `INFO`                                                                                                                                                |
+| Base URL       | <https://auth.chalmers.it/api/info/v1>                                                                                                                |
 | API Controller | [InfoV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/info/InfoV1ApiController.java) |
 
 [TOC]
@@ -22,50 +23,47 @@ user: User
 groups: GroupWithPost[]
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "user": {
-    "cid": "janed",
-    "nick": "Dough",
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "id": "2f63a363-af22-480d-be49-531c1831933c",
-    "acceptanceYear": 2025
-  },
-  "groups": [
+    ```json
     {
-      "group": {
-        "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
-        "version": 18,
-        "name": "prit25",
-        "prettyName": "P.R.I.T. 25",
-        "superGroup": {
-          "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-          "version": 1,
-          "name": "prit",
-          "prettyName": "P.R.I.T.",
-          "type": "committee",
-          "svDescription": "PR och rustm\u00e4steri",
-          "enDescription": "PR and premises maintenance"
-        }
+      "user": {
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "id": "2f63a363-af22-480d-be49-531c1831933c",
+        "acceptanceYear": 2025
       },
-      "post": {
-        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-        "version": 30,
-        "svName": "MaterialChef",
-        "enName": "MaterialChef",
-        "emailPrefix": "material",
-        "order": 11
-      }
+      "groups": [
+        {
+          "group": {
+            "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+            "version": 18,
+            "name": "prit25",
+            "prettyName": "P.R.I.T. 25",
+            "superGroup": {
+              "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+              "version": 1,
+              "name": "prit",
+              "prettyName": "P.R.I.T.",
+              "type": "committee",
+              "svDescription": "PR och rustm\u00e4steri",
+              "enDescription": "PR and premises maintenance"
+            }
+          },
+          "post": {
+            "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+            "version": 30,
+            "svName": "MaterialChef",
+            "enName": "MaterialChef",
+            "emailPrefix": "material",
+            "order": 11
+          }
+        }
+      ]
     }
-  ]
-}
-```
-
-</details>
+    ```
 
 ### User
 
@@ -78,21 +76,18 @@ lastName: string
 acceptanceYear: int
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "2f63a363-af22-480d-be49-531c1831933c",
-  "cid": "janed",
-  "nick": "Dough",
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "acceptanceYear": 2025
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "2f63a363-af22-480d-be49-531c1831933c",
+      "cid": "janed",
+      "nick": "Dough",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "acceptanceYear": 2025
+    }
+    ```
 
 ### Group with Post
 
@@ -112,37 +107,34 @@ post:
   order: int
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "group": {
-    "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
-    "version": 18,
-    "name": "prit26",
-    "prettyName": "P.R.I.T. 26",
-    "superGroup": {
-      "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-      "name": "prit",
-      "prettyName": "P.R.I.T.",
-      "type": "committee",
-      "svDescription": "PR och rustm\u00e4steri",
-      "enDescription": "PR and premises maintenance"
+    ```json
+    {
+      "group": {
+        "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
+        "version": 18,
+        "name": "prit26",
+        "prettyName": "P.R.I.T. 26",
+        "superGroup": {
+          "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+          "name": "prit",
+          "prettyName": "P.R.I.T.",
+          "type": "committee",
+          "svDescription": "PR och rustm\u00e4steri",
+          "enDescription": "PR and premises maintenance"
+        }
+      },
+      "post": {
+        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+        "version": 30,
+        "svName": "MaterialChef",
+        "enName": "MaterialChef",
+        "emailPrefix": "material",
+        "order": 11
+      }
     }
-  },
-  "post": {
-    "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-    "version": 30,
-    "svName": "MaterialChef",
-    "enName": "MaterialChef",
-    "emailPrefix": "material",
-    "order": 11
-  }
-}
-```
-
-</details>
+    ```
 
 ### Super Group
 
@@ -156,21 +148,18 @@ svDescription: string
 enDescription: string
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-  "name": "prit",
-  "prettyName": "P.R.I.T.",
-  "type": "committee",
-  "svDescription": "PR och rustm\u00e4steri",
-  "enDescription": "PR and premises maintenance"
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+      "name": "prit",
+      "prettyName": "P.R.I.T.",
+      "type": "committee",
+      "svDescription": "PR och rustm\u00e4steri",
+      "enDescription": "PR and premises maintenance"
+    }
+    ```
 
 ### Blob
 
@@ -179,13 +168,82 @@ type: "alumni" | "committee" | "functionaries" | "society"
 superGroup: BlobSuperGroup[]
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "type": "committee",
-  "superGroups": [
+    ```json
+    {
+      "type": "committee",
+      "superGroups": [
+        {
+          "superGroup": {
+            "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+            "name": "prit",
+            "prettyName": "P.R.I.T.",
+            "type": "committee",
+            "svDescription": "PR och rustm\u00e4steri",
+            "enDescription": "PR and premises maintenance"
+          },
+          "hasBanner": true,
+          "hasAvatar": true,
+          "members": [
+            {
+              "user": {
+                "id": "2f63a363-af22-480d-be49-531c1831933c",
+                "cid": "bloggsj",
+                "nick": "Bloggan",
+                "firstName": "Johnny",
+                "lastName": "Bloggs",
+                "acceptanceYear": 2025
+              },
+              "post": {
+                "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+                "svName": "Medlem",
+                "enName": "Member",
+                "emailPrefix": ""
+              },
+              "unofficialPostName": "MatChef"
+            },
+            {
+              "user": {
+                "cid": "janed",
+                "nick": "Dough",
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "id": "2f63a363-af22-480d-be49-531c1831933c",
+                "acceptanceYear": 2025
+              },
+              "post": {
+                "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                "svName": "MaterialChef",
+                "enName": "MaterialChef",
+                "emailPrefix": "material"
+              },
+              "unofficialPostName": ""
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+### Blob Super Group
+
+```yaml
+superGroup:
+    id: SuperGroupId
+    name: string
+    prettyName: string
+    type: "alumni" | "committee" | "functionaries" | "society"
+    svDescription: string
+    enDescription: string
+hasBanner: boolean
+hasAvatar: boolean
+members: BlobMember[]
+```
+
+??? example
+
+    ```json
     {
       "superGroup": {
         "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
@@ -234,43 +292,23 @@ superGroup: BlobSuperGroup[]
         }
       ]
     }
-  ]
-}
-```
+    ```
 
-</details>
-
-### Blob Super Group
+### Blob Member
 
 ```yaml
-superGroup:
-    id: SuperGroupId
-    name: string
-    prettyName: string
-    type: "alumni" | "committee" | "functionaries" | "society"
-    svDescription: string
-    enDescription: string
-hasBanner: boolean
-hasAvatar: boolean
-members: BlobMember[]
+user: User
+post:
+    id: PostId
+    svName: string
+    enName: string
+    emailPrefix: string
+unofficialPostName: string
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "superGroup": {
-    "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-    "name": "prit",
-    "prettyName": "P.R.I.T.",
-    "type": "committee",
-    "svDescription": "PR och rustm\u00e4steri",
-    "enDescription": "PR and premises maintenance"
-  },
-  "hasBanner": true,
-  "hasAvatar": true,
-  "members": [
+    ```json
     {
       "user": {
         "id": "2f63a363-af22-480d-be49-531c1831933c",
@@ -287,70 +325,12 @@ members: BlobMember[]
         "emailPrefix": ""
       },
       "unofficialPostName": "MatChef"
-    },
-    {
-      "user": {
-        "cid": "janed",
-        "nick": "Dough",
-        "firstName": "Jane",
-        "lastName": "Doe",
-        "id": "2f63a363-af22-480d-be49-531c1831933c",
-        "acceptanceYear": 2025
-      },
-      "post": {
-        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-        "svName": "MaterialChef",
-        "enName": "MaterialChef",
-        "emailPrefix": "material"
-      },
-      "unofficialPostName": ""
     }
-  ]
-}
-```
-
-</details>
-
-### Blob Member
-
-```yaml
-user: User
-post:
-    id: PostId
-    svName: string
-    enName: string
-    emailPrefix: string
-unofficialPostName: string
-```
-
-<details>
-<summary>Example</summary>
-
-```json
-{
-  "user": {
-    "id": "2f63a363-af22-480d-be49-531c1831933c",
-    "cid": "bloggsj",
-    "nick": "Bloggan",
-    "firstName": "Johnny",
-    "lastName": "Bloggs",
-    "acceptanceYear": 2025
-  },
-  "post": {
-    "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
-    "svName": "Medlem",
-    "enName": "Member",
-    "emailPrefix": ""
-  },
-  "unofficialPostName": "MatChef"
-}
-```
-
-</details>
+    ```
 
 ## Endpoints Reference
 
-The info API is currently hosted at <https://auth.chalmers.it/api/info/v1> and
+The Info API is currently hosted at <https://auth.chalmers.it/api/info/v1> and
 all endpoints in this section are relative to this URL.
 
 ### GET /users/{id}
@@ -367,52 +347,53 @@ Get information about a specific user.
 
 #### Example
 
-Request: `GET /users/2f63a363-af22-480d-be49-531c1831933c`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-{
-  "user": {
-    "cid": "janed",
-    "nick": "Dough",
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "id": "2f63a363-af22-480d-be49-531c1831933c",
-    "acceptanceYear": 2025
-  },
-  "groups": [
+    `GET /users/2f63a363-af22-480d-be49-531c1831933c`
+
+    #### Response
+
+    ```json
     {
-      "group": {
-        "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
-        "name": "prit25",
-        "prettyName": "P.R.I.T. 25",
-        "superGroup": {
-          "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-          "version": 1,
-          "name": "prit",
-          "prettyName": "P.R.I.T.",
-          "type": "committee",
-          "svDescription": "PR och rustm\u00e4steri",
-          "enDescription": "PR and premises maintenance"
-        },
-        "version": 18
+      "user": {
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "id": "2f63a363-af22-480d-be49-531c1831933c",
+        "acceptanceYear": 2025
       },
-      "post": {
-        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-        "version": 30,
-        "svName": "MaterialChef",
-        "enName": "MaterialChef",
-        "emailPrefix": "material",
-        "order": 11
-      }
+      "groups": [
+        {
+          "group": {
+            "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+            "name": "prit25",
+            "prettyName": "P.R.I.T. 25",
+            "superGroup": {
+              "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+              "version": 1,
+              "name": "prit",
+              "prettyName": "P.R.I.T.",
+              "type": "committee",
+              "svDescription": "PR och rustm\u00e4steri",
+              "enDescription": "PR and premises maintenance"
+            },
+            "version": 18
+          },
+          "post": {
+            "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+            "version": 30,
+            "svName": "MaterialChef",
+            "enName": "MaterialChef",
+            "emailPrefix": "material",
+            "order": 11
+          }
+        }
+      ]
     }
-  ]
-}
-```
-
-</details>
+    ```
 
 ### GET /blob
 
@@ -422,79 +403,80 @@ Get the full detailed information about all super groups.
 
 #### Example
 
-Request: `GET /blob`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  {
-    "type": "alumni",
-    "superGroups": []
-  },
-  {
-    "type": "committee",
-    "superGroups": [
+    `GET /blob`
+
+    #### Response
+
+    ```json
+    [
       {
-        "superGroup": {
-          "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-          "name": "prit",
-          "prettyName": "P.R.I.T.",
-          "type": "committee",
-          "svDescription": "PR och rustm\u00e4steri",
-          "enDescription": "PR and premises maintenance"
-        },
-        "hasBanner": true,
-        "hasAvatar": true,
-        "members": [
+        "type": "alumni",
+        "superGroups": []
+      },
+      {
+        "type": "committee",
+        "superGroups": [
           {
-            "user": {
-              "id": "2f63a363-af22-480d-be49-531c1831933c",
-              "cid": "bloggsj",
-              "nick": "Bloggan",
-              "firstName": "Johnny",
-              "lastName": "Bloggs",
-              "acceptanceYear": 2025
+            "superGroup": {
+              "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+              "name": "prit",
+              "prettyName": "P.R.I.T.",
+              "type": "committee",
+              "svDescription": "PR och rustm\u00e4steri",
+              "enDescription": "PR and premises maintenance"
             },
-            "post": {
-              "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
-              "svName": "Medlem",
-              "enName": "Member",
-              "emailPrefix": ""
-            },
-            "unofficialPostName": "MatChef"
-          },
-          {
-            "user": {
-              "cid": "janed",
-              "nick": "Dough",
-              "firstName": "Jane",
-              "lastName": "Doe",
-              "id": "2f63a363-af22-480d-be49-531c1831933c",
-              "acceptanceYear": 2025
-            },
-            "post": {
-              "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-              "svName": "MaterialChef",
-              "enName": "MaterialChef",
-              "emailPrefix": "material"
-            },
-            "unofficialPostName": ""
+            "hasBanner": true,
+            "hasAvatar": true,
+            "members": [
+              {
+                "user": {
+                  "id": "2f63a363-af22-480d-be49-531c1831933c",
+                  "cid": "bloggsj",
+                  "nick": "Bloggan",
+                  "firstName": "Johnny",
+                  "lastName": "Bloggs",
+                  "acceptanceYear": 2025
+                },
+                "post": {
+                  "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+                  "svName": "Medlem",
+                  "enName": "Member",
+                  "emailPrefix": ""
+                },
+                "unofficialPostName": "MatChef"
+              },
+              {
+                "user": {
+                  "cid": "janed",
+                  "nick": "Dough",
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "id": "2f63a363-af22-480d-be49-531c1831933c",
+                  "acceptanceYear": 2025
+                },
+                "post": {
+                  "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                  "svName": "MaterialChef",
+                  "enName": "MaterialChef",
+                  "emailPrefix": "material"
+                },
+                "unofficialPostName": ""
+              }
+            ]
           }
         ]
+      },
+      {
+        "type": "functionaries",
+        "superGroups": []
+      },
+      {
+        "type": "society",
+        "superGroups": []
       }
     ]
-  },
-  {
-    "type": "functionaries",
-    "superGroups": []
-  },
-  {
-    "type": "society",
-    "superGroups": []
-  }
-]
-```
-
-</details>
+    ```

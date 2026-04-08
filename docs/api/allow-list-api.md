@@ -5,7 +5,10 @@ Manage the Gamma [allow list](#what-is-the-allow-list).
 | Name           | Value                                                                                                                                                                |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API Key Type   | `ALLOW_LIST`                                                                                                                                                         |
+| Base URL       | <https://auth.chalmers.it/api/allow-list/v1>                                                                                                                         |
 | API Controller | [AllowListV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/allowlist/AllowListV1ApiController.java) |
+
+[TOC]
 
 ## What is the allow list?
 

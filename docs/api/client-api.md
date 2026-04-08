@@ -1,4 +1,4 @@
-# Client API Reference
+# Client API
 
 Get information about users who have authorized the client, hereafter referred
 to as a "user of the client".
@@ -6,6 +6,7 @@ to as a "user of the client".
 | Name           | Value                                                                                                                                                       |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API Key Type   | `CLIENT`                                                                                                                                                    |
+| Base URL       | <https://auth.chalmers.it/api/client/v1>                                                                                                                    |
 | API Controller | [ClientApiV1Controller](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/client/ClientApiV1Controller.java) |
 
 !!! note
@@ -51,21 +52,18 @@ lastName: string
 acceptanceYear: int
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "2f63a363-af22-480d-be49-531c1831933c",
-  "cid": "janed",
-  "nick": "Dough",
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "acceptanceYear": 2025
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "2f63a363-af22-480d-be49-531c1831933c",
+      "cid": "janed",
+      "nick": "Dough",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "acceptanceYear": 2025
+    }
+    ```
 
 ### Group
 
@@ -78,26 +76,23 @@ prettyName: string
 superGroup: SuperGroup
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
-  "name": "prit26",
-  "prettyName": "P.R.I.T. 26",
-  "superGroup": {
-    "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-    "name": "prit",
-    "prettyName": "P.R.I.T.",
-    "type": "committee",
-    "svDescription": "PR och rustm\u00e4steri",
-    "enDescription": "PR and premises maintenance"
-  }
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
+      "name": "prit26",
+      "prettyName": "P.R.I.T. 26",
+      "superGroup": {
+        "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+        "name": "prit",
+        "prettyName": "P.R.I.T.",
+        "type": "committee",
+        "svDescription": "PR och rustm\u00e4steri",
+        "enDescription": "PR and premises maintenance"
+      }
+    }
+    ```
 
 ### Group with Post
 
@@ -109,32 +104,29 @@ superGroup: SuperGroup
 post: Post
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
-  "name": "prit25",
-  "prettyName": "P.R.I.T. 25",
-  "superGroup": {
-    "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
-    "name": "sprit",
-    "prettyName": "S.P.R.I.T.",
-    "type": "alumni",
-    "svDescription": "",
-    "enDescription": ""
-  },
-  "post": {
-    "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-    "version": 30,
-    "svName": "MaterialChef",
-    "enName": "MaterialChef"
-  }
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+      "name": "prit25",
+      "prettyName": "P.R.I.T. 25",
+      "superGroup": {
+        "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
+        "name": "sprit",
+        "prettyName": "S.P.R.I.T.",
+        "type": "alumni",
+        "svDescription": "",
+        "enDescription": ""
+      },
+      "post": {
+        "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+        "version": 30,
+        "svName": "MaterialChef",
+        "enName": "MaterialChef"
+      }
+    }
+    ```
 
 ### Post
 
@@ -145,19 +137,16 @@ svName: string
 enName: string
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
-  "version": 30,
-  "svName": "Medlem",
-  "enName": "Member"
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+      "version": 30,
+      "svName": "Medlem",
+      "enName": "Member"
+    }
+    ```
 
 ### Super Group
 
@@ -172,21 +161,18 @@ svDescription: string
 enDescription: string
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "id": "dea3493e-66e4-44b2-a657-cb57a6840dab",
-  "name": "digit",
-  "prettyName": "digIT",
-  "type": "committee",
-  "svDescription": "Digitala system",
-  "enDescription": "Digital systems"
-}
-```
-
-</details>
+    ```json
+    {
+      "id": "dea3493e-66e4-44b2-a657-cb57a6840dab",
+      "name": "digit",
+      "prettyName": "digIT",
+      "type": "committee",
+      "svDescription": "Digitala system",
+      "enDescription": "Digital systems"
+    }
+    ```
 
 ## Endpoints Reference
 
@@ -201,33 +187,34 @@ Get all users of the client.
 
 #### Example
 
-Request: `GET /users`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  {
-    "id": "2f63a363-af22-480d-be49-531c1831933c",
-    "cid": "janed",
-    "nick": "Dough",
-    "firstName": "Jane",
-    "lastName": "Doe",
-    "acceptanceYear": 2025
-  },
-  {
-    "id": "9acb43d4-42f3-4f9d-9f37-bc156463e1a5",
-    "cid": "smithj",
-    "nick": "Smithed",
-    "firstName": "John",
-    "lastName": "Smith",
-    "acceptanceYear": 2026
-  }
-]
-```
+    `GET /users`
 
-</details>
+    #### Response
+
+    ```json
+    [
+      {
+        "id": "2f63a363-af22-480d-be49-531c1831933c",
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "acceptanceYear": 2025
+      },
+      {
+        "id": "9acb43d4-42f3-4f9d-9f37-bc156463e1a5",
+        "cid": "smithj",
+        "nick": "Smithed",
+        "firstName": "John",
+        "lastName": "Smith",
+        "acceptanceYear": 2026
+      }
+    ]
+    ```
 
 ### GET /users/{id}
 
@@ -247,23 +234,24 @@ Get a user of the client.
 
 #### Example
 
-Request: `GET /users/2f63a363-af22-480d-be49-531c1831933c`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response:</summary>
+    #### Request
 
-```json
-{
-  "id": "2f63a363-af22-480d-be49-531c1831933c",
-  "cid": "janed",
-  "nick": "Dough",
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "acceptanceYear": 2025
-}
-```
+    `GET /users/2f63a363-af22-480d-be49-531c1831933c`
 
-</details>
+    #### Response
+
+    ```json
+    {
+      "id": "2f63a363-af22-480d-be49-531c1831933c",
+      "cid": "janed",
+      "nick": "Dough",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "acceptanceYear": 2025
+    }
+    ```
 
 ### GET /groups
 
@@ -273,69 +261,70 @@ Get all Gamma groups.
 
 #### Example
 
-Request: `GET /groups`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  {
-    "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
-    "name": "prit25",
-    "prettyName": "P.R.I.T. 25",
-    "superGroup": {
-      "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
-      "name": "sprit",
-      "prettyName": "S.P.R.I.T.",
-      "type": "alumni",
-      "svDescription": "",
-      "enDescription": ""
-    }
-  },
-  {
-    "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
-    "name": "prit26",
-    "prettyName": "P.R.I.T. 26",
-    "superGroup": {
-      "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-      "name": "prit",
-      "prettyName": "P.R.I.T.",
-      "type": "committee",
-      "svDescription": "PR och rustm\u00e4steri",
-      "enDescription": "PR and premises maintenance"
-    }
-  },
-  {
-    "id": "64c623a0-31ce-4519-9fbf-67f207f88286",
-    "name": "fikit25",
-    "prettyName": "FikIT 25",
-    "superGroup": {
-      "id": "f5dd9c81-838b-49ec-bab4-a831331c4dc2",
-      "name": "fikit",
-      "prettyName": "FikIT",
-      "type": "society",
-      "svDescription": "",
-      "enDescription": ""
-    }
-  },
-  {
-    "id": "59c01004-a961-499c-96ef-1a3785f9ddd8",
-    "name": "samlag25",
-    "prettyName": "SAMLAG 25",
-    "superGroup": {
-      "id": "2d75da98-c4a0-43af-9067-61320c891185",
-      "name": "samlag",
-      "prettyName": "Skol-Avslutnings-Musik-Ledar-Arbets-Gruppen",
-      "type": "functionaries",
-      "svDescription": "Skolavlutning",
-      "enDescription": "End of year choir"
-    }
-  }
-]
-```
+    `GET /groups`
 
-</details>
+    #### Response
+
+    ```json
+    [
+      {
+        "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+        "name": "prit25",
+        "prettyName": "P.R.I.T. 25",
+        "superGroup": {
+          "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
+          "name": "sprit",
+          "prettyName": "S.P.R.I.T.",
+          "type": "alumni",
+          "svDescription": "",
+          "enDescription": ""
+        }
+      },
+      {
+        "id": "7ec28eaa-7203-47fb-9c80-8b1678936be9",
+        "name": "prit26",
+        "prettyName": "P.R.I.T. 26",
+        "superGroup": {
+          "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+          "name": "prit",
+          "prettyName": "P.R.I.T.",
+          "type": "committee",
+          "svDescription": "PR och rustm\u00e4steri",
+          "enDescription": "PR and premises maintenance"
+        }
+      },
+      {
+        "id": "64c623a0-31ce-4519-9fbf-67f207f88286",
+        "name": "fikit25",
+        "prettyName": "FikIT 25",
+        "superGroup": {
+          "id": "f5dd9c81-838b-49ec-bab4-a831331c4dc2",
+          "name": "fikit",
+          "prettyName": "FikIT",
+          "type": "society",
+          "svDescription": "",
+          "enDescription": ""
+        }
+      },
+      {
+        "id": "59c01004-a961-499c-96ef-1a3785f9ddd8",
+        "name": "samlag25",
+        "prettyName": "SAMLAG 25",
+        "superGroup": {
+          "id": "2d75da98-c4a0-43af-9067-61320c891185",
+          "name": "samlag",
+          "prettyName": "Skol-Avslutnings-Musik-Ledar-Arbets-Gruppen",
+          "type": "functionaries",
+          "svDescription": "Skolavlutning",
+          "enDescription": "End of year choir"
+        }
+      }
+    ]
+    ```
 
 ### GET /groups/for/{id}
 
@@ -355,55 +344,56 @@ Get all groups which a user of the client is in.
 
 #### Example
 
-Request: `GET /groups/for/2f63a363-af22-480d-be49-531c1831933c`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  {
-    "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
-    "name": "prit25",
-    "prettyName": "P.R.I.T. 25",
-    "superGroup": {
-      "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
-      "name": "sprit",
-      "prettyName": "S.P.R.I.T.",
-      "type": "alumni",
-      "svDescription": "",
-      "enDescription": ""
-    },
-    "post": {
-      "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-      "version": 30,
-      "svName": "MaterialChef",
-      "enName": "MaterialChef"
-    }
-  },
-  {
-    "id": "01b42763-eeb5-4989-8c8d-364b472f592c",
-    "name": "hookit26",
-    "prettyName": "HookIT 26",
-    "superGroup": {
-      "id": "8f87a4ac-869f-4a6a-a64e-815eb551d1da",
-      "name": "hookit",
-      "prettyName": "HookIT",
-      "type": "society",
-      "svDescription": "",
-      "enDescription": ""
-    },
-    "post": {
-      "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
-      "version": 30,
-      "svName": "Medlem",
-      "enName": "Member"
-    }
-  }
-]
-```
+    `GET /groups/for/2f63a363-af22-480d-be49-531c1831933c`
 
-</details>
+    #### Response
+
+    ```json
+    [
+      {
+        "id": "3cf94646-2412-4896-bba9-5d2410ac0c62",
+        "name": "prit25",
+        "prettyName": "P.R.I.T. 25",
+        "superGroup": {
+          "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
+          "name": "sprit",
+          "prettyName": "S.P.R.I.T.",
+          "type": "alumni",
+          "svDescription": "",
+          "enDescription": ""
+        },
+        "post": {
+          "id": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+          "version": 30,
+          "svName": "MaterialChef",
+          "enName": "MaterialChef"
+        }
+      },
+      {
+        "id": "01b42763-eeb5-4989-8c8d-364b472f592c",
+        "name": "hookit26",
+        "prettyName": "HookIT 26",
+        "superGroup": {
+          "id": "8f87a4ac-869f-4a6a-a64e-815eb551d1da",
+          "name": "hookit",
+          "prettyName": "HookIT",
+          "type": "society",
+          "svDescription": "",
+          "enDescription": ""
+        },
+        "post": {
+          "id": "2a1a66a2-8e58-461c-96f1-9408a9c543f9",
+          "version": 30,
+          "svName": "Medlem",
+          "enName": "Member"
+        }
+      }
+    ]
+    ```
 
 ### GET /superGroups
 
@@ -411,57 +401,58 @@ Get all Gamma super groups.
 
 **Return type**: [Super group](#super-group) list
 
+#### Example
+
+??? example "Click to show example request and response"
+
+    #### Request
+
+    `GET /superGroups`
+
+    #### Response
+
+    ```json
+    [
+      {
+        "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
+        "name": "sprit",
+        "prettyName": "S.P.R.I.T.",
+        "type": "alumni",
+        "svDescription": "",
+        "enDescription": ""
+      },
+      {
+        "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
+        "name": "prit",
+        "prettyName": "P.R.I.T.",
+        "type": "committee",
+        "svDescription": "PR och rustm\u00e4steri",
+        "enDescription": "PR and premises maintenance"
+      },
+      {
+        "id": "f5dd9c81-838b-49ec-bab4-a831331c4dc2",
+        "name": "fikit",
+        "prettyName": "FikIT",
+        "type": "society",
+        "svDescription": "",
+        "enDescription": ""
+      },
+      {
+        "id": "2d75da98-c4a0-43af-9067-61320c891185",
+        "name": "samlag",
+        "prettyName": "Skol-Avslutnings-Musik-Ledar-Arbets-Gruppen",
+        "type": "functionaries",
+        "svDescription": "Skolavlutning",
+        "enDescription": "End of year choir"
+      }
+    ]
+    ```
+
 #### Parameters
 
 | Name | Type | Data Type | Description   |
 | ---- | ---- | --------- | ------------- |
 | id   | path | UserId    | The user UUID |
-
-#### Example
-
-Request: `GET /superGroups`
-
-<details>
-<summary>Response</summary>
-
-```json
-[
-  {
-    "id": "f06d3eb5-c718-4857-9fac-c457a3ab82a7",
-    "name": "sprit",
-    "prettyName": "S.P.R.I.T.",
-    "type": "alumni",
-    "svDescription": "",
-    "enDescription": ""
-  },
-  {
-    "id": "32da51ec-2854-4bc2-b19a-30dad5dcc501",
-    "name": "prit",
-    "prettyName": "P.R.I.T.",
-    "type": "committee",
-    "svDescription": "PR och rustm\u00e4steri",
-    "enDescription": "PR and premises maintenance"
-  },
-  {
-    "id": "f5dd9c81-838b-49ec-bab4-a831331c4dc2",
-    "name": "fikit",
-    "prettyName": "FikIT",
-    "type": "society",
-    "svDescription": "",
-    "enDescription": ""
-  },
-  {
-    "id": "2d75da98-c4a0-43af-9067-61320c891185",
-    "name": "samlag",
-    "prettyName": "Skol-Avslutnings-Musik-Ledar-Arbets-Gruppen",
-    "type": "functionaries",
-    "svDescription": "Skolavlutning",
-    "enDescription": "End of year choir"
-  }
-]
-```
-
-</details>
 
 ### GET /authorities
 
@@ -471,19 +462,20 @@ Get the names of all [client authorities](#client-authorities) on the client.
 
 #### Example
 
-Request: `GET /authorities`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  "clientadmins",
-  "specialuser"
-]
-```
+    `GET /authorities`
 
-</details>
+    #### Response
+
+    ```json
+    [
+      "clientadmins",
+      "specialuser"
+    ]
+    ```
 
 ### GET /authorities/for/{id}
 
@@ -505,18 +497,19 @@ belongs to.
 
 #### Example
 
-Request: `GET /authorities/2f63a363-af22-480d-be49-531c1831933c`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  "specialuser"
-]
-```
+    `GET /authorities/2f63a363-af22-480d-be49-531c1831933c`
 
-</details>
+    #### Response
+
+    ```json
+    [
+      "specialuser"
+    ]
+    ```
 
 [^1]: `is_admin` property in `backend/src/index.ts`. cthit/bookIT-node on GitHub —
     <https://github.com/cthit/bookIT-node/blame/2378a279d047edffb0d1e967904e9fcf3824fa17/backend/src/index.ts#L46>

@@ -63,8 +63,7 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
-  - swagger-ui-tag:
-      tryItOutEnabled: true
+  - swagger-ui-tag
   - neoteroi.contribs:
       contributors:
         - email: oli@olillin.com

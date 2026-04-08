@@ -3,6 +3,8 @@
 When working with Gamma, you will have to use the website for some
 configuration.
 
+[TOC]
+
 ## User Clients
 
 This section describes how to create and manage a
@@ -34,10 +36,8 @@ Gamma client:
 | Swedish description | A short description in Swedish explaining what your client is for. Appears on the ["**Your accepted clients**"](https://auth.chalmers.it/me/accepted-clients) page for users with Swedish as their preferred language.                         |
 | English description | A short description in English explaining what your client is for. Appears on the ["**Your accepted clients**"](https://auth.chalmers.it/me/accepted-clients) page for users with English as their preferred language.                         |
 | Redirect url        | This is the URL that users will be redirected to after authorizing your client as part of the OAuth flow. You can read more about redirect URLs in [this article by OAuth 2.0 Simplified](https://www.oauth.com/oauth2-servers/redirect-uris). |
-| Generate api key    | Whether or not an API key should be created for this client, this cannot be done after creating your client. To figure out if you need this, read the [API keys](<>) section.                                                                  |
-| Include email scope | Select this option if you need access to the email adress of your users. Read more in the [scopes](<>) section.                                                                                                                                |
-
-`// TODO: Add API keys and Scopes sections`
+| Generate api key    | Whether or not an API key should be created for this client, this cannot be done after creating your client. An API key is required for the [Client Credentials](api/authorization.md#client-credentials-flow) authorization flow.             |
+| Include email scope | Select this option if you need access to the email adress of your users. Read more in the [scopes](api/authorization.md#scopes) section.                                                                                                       |
 
 ![Creating a new client](images/web/gamma-client/creation-menu.jpg)
 
@@ -66,7 +66,7 @@ authority, this is the string which will be returned in the client API.
 
     Authority names must match this
     [RegEx](https://en.wikipedia.org/wiki/Regular_expression) pattern:
-    `/^([0-9a-z]{2,30})$/`[^4]
+    `/^([0-9a-z]{2,30})$/`[^4].
 
 ![Creating a new client authority](images/web/gamma-client/client-authority-name.jpg)
 
@@ -95,6 +95,13 @@ See the screenshot below for an example of an authorization page for a *User
 Client*.
 
 ![Screenshot of the authorization page](images/web/authorize-client.jpg)
+
+### Mismatched Scopes
+
+If the requested scopes do not match the registered client scopes the user will
+instead see this error screen.
+
+![Mismatched scopes for client error](images/web/mismatched-scopes.jpg)
 
 [^1]: Comment by Portals on cthit/Gamma issue #943 on GitHub, *Add ability to edit
     client details* —

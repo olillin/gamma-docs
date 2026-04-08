@@ -6,6 +6,7 @@ external accounts like GSuite and Bitwarden with Gamma.
 | Name           | Value                                                                                                                                                                                  |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API Key Type   | `ACCOUNT_SCAFFOLD`                                                                                                                                                                     |
+| Base URL       | <https://auth.chalmers.it/api/account-scaffold/v1>                                                                                                                                     |
 | API Controller | [AccountScaffoldV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/accountscaffold/AccountScaffoldV1ApiController.java) |
 
 [TOC]
@@ -22,20 +23,17 @@ firstName: string
 lastName: string
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "email": "janed@chalmers.se",
-  "cid": "janed",
-  "nick": "Dough",
-  "firstName": "Jane",
-  "lastName": "Doe"
-}
-```
-
-</details>
+    ```json
+    {
+      "email": "janed@chalmers.se",
+      "cid": "janed",
+      "nick": "Dough",
+      "firstName": "Jane",
+      "lastName": "Doe"
+    }
+    ```
 
 ### Super group
 
@@ -47,16 +45,66 @@ useManagedAccount: boolean
 groups: Group[]
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "name": "prit",
-  "prettyName": "P.R.I.T.",
-  "type": "committee",
-  "useManagedAccount": true,
-  "groups": [
+    ```json
+    {
+      "name": "prit",
+      "prettyName": "P.R.I.T.",
+      "type": "committee",
+      "useManagedAccount": true,
+      "groups": [
+        {
+          "name": "prit25",
+          "prettyName": "P.R.I.T. 25",
+          "members": [
+            {
+              "user": {
+                "cid": "smithj",
+                "nick": "Smithed",
+                "firstName": "John",
+                "lastName": "Smith",
+                "email": "smithj@chalmers.se"
+              },
+              "post": {
+                "postId": "3eea59d7-eaf6-498c-b43d-a315c13fac55",
+                "svText": "Ordf\u00f6rande",
+                "enText": "Chairman",
+                "emailPrefix": "ordf"
+              }
+            },
+            {
+              "user": {
+                "cid": "janed",
+                "nick": "Dough",
+                "firstName": "Jane",
+                "lastName": "Doe",
+                "email": "janed@chalmers.se"
+              },
+              "post": {
+                "postId": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                "svText": "MaterialChef",
+                "enText": "MaterialChef",
+                "emailPrefix": "material"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    ```
+
+### Group
+
+```yaml
+name: string
+prettyName: string
+members: UserPost[]
+```
+
+??? example
+
+    ```json
     {
       "name": "prit25",
       "prettyName": "P.R.I.T. 25",
@@ -93,28 +141,18 @@ groups: Group[]
         }
       ]
     }
-  ]
-}
-```
+    ```
 
-</details>
-
-### Group
+### User post
 
 ```yaml
-name: string
-prettyName: string
-members: UserPost[]
+user: User
+post: Post
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "name": "prit25",
-  "prettyName": "P.R.I.T. 25",
-  "members": [
+    ```json
     {
       "user": {
         "cid": "smithj",
@@ -129,57 +167,8 @@ members: UserPost[]
         "enText": "Chairman",
         "emailPrefix": "ordf"
       }
-    },
-    {
-      "user": {
-        "cid": "janed",
-        "nick": "Dough",
-        "firstName": "Jane",
-        "lastName": "Doe",
-        "email": "janed@chalmers.se"
-      },
-      "post": {
-        "postId": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-        "svText": "MaterialChef",
-        "enText": "MaterialChef",
-        "emailPrefix": "material"
-      }
     }
-  ]
-}
-```
-
-</details>
-
-### User post
-
-```yaml
-user: User
-post: Post
-```
-
-<details>
-<summary>Example</summary>
-
-```json
-{
-  "user": {
-    "cid": "smithj",
-    "nick": "Smithed",
-    "firstName": "John",
-    "lastName": "Smith",
-    "email": "smithj@chalmers.se"
-  },
-  "post": {
-    "postId": "3eea59d7-eaf6-498c-b43d-a315c13fac55",
-    "svText": "Ordf\u00f6rande",
-    "enText": "Chairman",
-    "emailPrefix": "ordf"
-  }
-}
-```
-
-</details>
+    ```
 
 ### Post
 
@@ -190,19 +179,16 @@ enText: string
 emailPrefix: string
 ```
 
-<details>
-<summary>Example</summary>
+??? example
 
-```json
-{
-  "postId": "3eea59d7-eaf6-498c-b43d-a315c13fac55",
-  "svText": "Ordf\u00f6rande",
-  "enText": "Chairman",
-  "emailPrefix": "ordf"
-}
-```
-
-</details>
+    ```json
+    {
+      "postid": "3eea59d7-eaf6-498c-b43d-a315c13fac55",
+      "svtext": "ordf\u00f6rande",
+      "entext": "chairman",
+      "emailprefix": "ordf"
+    }
+    ```
 
 ## Endpoints Reference
 
@@ -219,31 +205,32 @@ GDPR training.
 
 #### Example
 
-Request: `GET /users`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  {
-    "email": "smithj@chalmers.se",
-    "cid": "smithj",
-    "nick": "Smithed",
-    "firstName": "John",
-    "lastName": "Smith"
-  },
-  {
-    "email": "janed@chalmers.se",
-    "cid": "janed",
-    "nick": "Dough",
-    "firstName": "Jane",
-    "lastName": "Doe"
-  }
-]
-```
+    `GET /users`
 
-</details>
+    #### Response
+
+    ```json
+    [
+      {
+        "email": "smithj@chalmers.se",
+        "cid": "smithj",
+        "nick": "Smithed",
+        "firstName": "John",
+        "lastName": "Smith"
+      },
+      {
+        "email": "janed@chalmers.se",
+        "cid": "janed",
+        "nick": "Dough",
+        "firstName": "Jane",
+        "lastName": "Doe"
+      }
+    ]
+    ```
 
 ### GET /supergroups
 
@@ -256,58 +243,59 @@ valid groups in them will be omitted.
 
 #### Example
 
-Request: `GET /supergroups`
+??? example "Click to show example request and response"
 
-<details>
-<summary>Response</summary>
+    #### Request
 
-```json
-[
-  {
-    "name": "prit",
-    "prettyName": "P.R.I.T.",
-    "type": "committee",
-    "useManagedAccount": true,
-    "groups": [
+    `GET /supergroups`
+
+    #### Response
+
+    ```json
+    [
       {
-        "name": "prit25",
-        "prettyName": "P.R.I.T. 25",
-        "members": [
+        "name": "prit",
+        "prettyName": "P.R.I.T.",
+        "type": "committee",
+        "useManagedAccount": true,
+        "groups": [
           {
-            "user": {
-              "cid": "smithj",
-              "nick": "Smithed",
-              "firstName": "John",
-              "lastName": "Smith",
-              "email": "smithj@chalmers.se"
-            },
-            "post": {
-              "postId": "3eea59d7-eaf6-498c-b43d-a315c13fac55",
-              "svText": "Ordf\u00f6rande",
-              "enText": "Chairman",
-              "emailPrefix": "ordf"
-            }
-          },
-          {
-            "user": {
-              "cid": "janed",
-              "nick": "Dough",
-              "firstName": "Jane",
-              "lastName": "Doe",
-              "email": "janed@chalmers.se"
-            },
-            "post": {
-              "postId": "0b960919-6dc0-4128-b772-c31840b7b8f7",
-              "svText": "MaterialChef",
-              "enText": "MaterialChef",
-              "emailPrefix": "material"
-            }
+            "name": "prit25",
+            "prettyName": "P.R.I.T. 25",
+            "members": [
+              {
+                "user": {
+                  "cid": "smithj",
+                  "nick": "Smithed",
+                  "firstName": "John",
+                  "lastName": "Smith",
+                  "email": "smithj@chalmers.se"
+                },
+                "post": {
+                  "postId": "3eea59d7-eaf6-498c-b43d-a315c13fac55",
+                  "svText": "Ordf\u00f6rande",
+                  "enText": "Chairman",
+                  "emailPrefix": "ordf"
+                }
+              },
+              {
+                "user": {
+                  "cid": "janed",
+                  "nick": "Dough",
+                  "firstName": "Jane",
+                  "lastName": "Doe",
+                  "email": "janed@chalmers.se"
+                },
+                "post": {
+                  "postId": "0b960919-6dc0-4128-b772-c31840b7b8f7",
+                  "svText": "MaterialChef",
+                  "enText": "MaterialChef",
+                  "emailPrefix": "material"
+                }
+              }
+            ]
           }
         ]
       }
     ]
-  }
-]
-```
-
-</details>
+    ```
