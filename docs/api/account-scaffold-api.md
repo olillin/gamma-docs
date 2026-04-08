@@ -13,6 +13,8 @@ external accounts like GSuite and Bitwarden with Gamma.
 
 ## Types
 
+These are the types used in the Account Scaffold API.
+
 ### User
 
 ```yaml
@@ -192,7 +194,7 @@ emailPrefix: string
 
 ## Endpoints Reference
 
-The client API is currently hosted at
+The Account Scaffold API is currently hosted at
 <https://auth.chalmers.it/api/account-scaffold/v1> and all endpoints in this
 section are relative to this URL.
 

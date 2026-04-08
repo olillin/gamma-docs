@@ -11,7 +11,7 @@ to as a "user of the client".
 
 !!! note
 
-    The `email` scope does *not* make e-mails visible in the client API. Use the
+    The `email` scope does *not* make e-mails visible in the Client API. Use the
     [OpenID](openid.md) or [Account Scaffold](account-scaffold-api.md) API instead.
 
 [TOC]
@@ -24,7 +24,7 @@ are, for example, used by BookIT to give the "admin" authority to users who
 should be able to manage bookings and rules[^1].
 
 A client authority is simply a string label added to certain users. Using the
-client API it is possible to get a list of client authorities a user has. The
+Client API it is possible to get a list of client authorities a user has. The
 authority will be included in the list if:
 
 - The user is in a group which belongs to any of the super groups which have
@@ -176,7 +176,7 @@ enDescription: string
 
 ## Endpoints Reference
 
-The client API is currently hosted at <https://auth.chalmers.it/api/client/v1>
+The Client API is currently hosted at <https://auth.chalmers.it/api/client/v1>
 and all endpoints in this section are relative to this URL.
 
 ### GET /users

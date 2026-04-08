@@ -55,12 +55,12 @@ operations on a client after creation are:
 #### Creating client authorities
 
 For an introduction to client authorities. See the
-[Client Authorities](api/client-api.md#client-authorities) section in the client
+[Client Authorities](api/client-api.md#client-authorities) section in the Client
 API documentation.
 
 To create a client authority, scroll down to the **Create client authority**
 section on the page of your client. There you can fill in the name of the
-authority, this is the string which will be returned in the client API.
+authority, this is the string which will be returned in the Client API.
 
 !!! note
 
