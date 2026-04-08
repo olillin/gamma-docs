@@ -16,12 +16,24 @@ If using Nix you can start the development shell including these with:
 nix develop
 ```
 
+### Format Everything
+
+The flake includes a `fmt` command which runs all the formatters:
+
+```console
+fmt
+```
+
+### Markdown
+
 Run this command to format Markdown files with
 [mdformat](https://mdformat.rtfd.io):
 
 ```console
 mdformat .
 ```
+
+### YAML
 
 Run this command to format YAML files with
 [yamlfmt](https://github.com/google/yamlfmt):
@@ -30,15 +42,19 @@ Run this command to format YAML files with
 yamlfmt .
 ```
 
-Run this command to format Nix files with
-[Alejandra](https://github.com/kamadorueda/alejandra):
-
-```console
-alejandra .
-```
+### TOML
 
 Run this command to format TOML files with [Taplo](https://taplo.tamasfe.dev):
 
 ```console
 taplo fmt
+```
+
+### Nix
+
+Run this command to format Nix files with
+[Alejandra](https://github.com/kamadorueda/alejandra):
+
+```console
+alejandra .
 ```

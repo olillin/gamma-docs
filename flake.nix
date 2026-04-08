@@ -51,10 +51,33 @@
         overlays = [self.overlays.default];
       };
       inherit (pkgs) lib;
+
+      format-script = let
+        color = "\\033[1;36m";
+        clear = "\\033[0m";
+      in
+        pkgs.writeShellScriptBin "fmt" ''
+          set -e
+
+          echo -e "${color}Formatting Markdown with mdformat...${clear}"
+          mdformat .
+
+          echo -e "\n${color}Formatting YAML with yamlfmt...${clear}"
+          yamlfmt .
+
+          echo -e "\n${color}Formatting TOML with Taplo...${clear}"
+          taplo fmt
+
+          echo -e "\n${color}Formatting Nix with Alejandra...${clear}"
+          alejandra .
+
+          echo -e "\n\033[1;32mFormatted successfully${clear}"
+        '';
     in {
       devShells.default = pkgs.mkShell {
         packages = with pkgs;
           [
+            format-script
             alejandra
             taplo
             yamlfmt
