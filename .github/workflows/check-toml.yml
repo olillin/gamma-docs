@@ -10,7 +10,7 @@ on:
 permissions:
   contents: read
 jobs:
-  check-nix:
+  check-toml:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
