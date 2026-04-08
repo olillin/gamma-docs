@@ -1,0 +1,20 @@
+# Format checks for TOML
+name: Format TOML
+on:
+  push:
+    paths:
+      - "**/*.toml"
+  pull_request:
+    paths:
+      - "**/*.toml"
+permissions:
+  contents: read
+jobs:
+  check-nix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Nix
+        uses: cachix/install-nix-action@v25
+      - name: Check TOML formatting
+        run: nix develop --command taplo fmt --check

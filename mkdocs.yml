@@ -2,24 +2,22 @@ site_name: Gamma Docs
 site_description: Documentation for Gamma, the authentication and authorization service for the Software Engineering Student Division (IT) at Chalmers.
 repo_url: https://github.com/olillin/gamma-docs
 edit_uri: edit/main/docs/
-
 nav:
   - Home: index.md
   - API Reference:
-    - 'api/index.md'
-    - 'api/authorization.md'
-    - 'api/openid.md'
-    - 'api/client-api.md'
-    - 'api/client-api-openapi.md'
-    - 'api/info-api.md'
-    - 'api/account-scaffold-api.md'
-    - 'api/allow-list-api.md'
+      - 'api/index.md'
+      - 'api/authorization.md'
+      - 'api/openid.md'
+      - 'api/client-api.md'
+      - 'api/client-api-openapi.md'
+      - 'api/info-api.md'
+      - 'api/account-scaffold-api.md'
+      - 'api/allow-list-api.md'
   - 'website.md'
   - 'history.md'
   - Links:
-    - Gamma: 'https://auth.chalmers.it'
-    - Gamma GitHub Repository: 'https://github.com/cthit/Gamma'
-
+      - Gamma: 'https://auth.chalmers.it'
+      - Gamma GitHub Repository: 'https://github.com/cthit/Gamma'
 theme:
   name: material
   locale: en
@@ -27,7 +25,7 @@ theme:
     - content.action.view
     - content.action.edit
   icon:
-    edit: material/pencil 
+    edit: material/pencil
     view: material/code-tags
   palette:
     # Palette toggle for automatic mode
@@ -36,7 +34,6 @@ theme:
       toggle:
         icon: material/brightness-auto
         name: Switch to light mode
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -44,7 +41,6 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
@@ -52,11 +48,9 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
 extra_css:
   - css/neoteroi-mkdocs.css
   - css/toc.css
-
 markdown_extensions:
   - admonition:
   - toc:
@@ -66,7 +60,6 @@ markdown_extensions:
   - pymdownx.details:
   - pymdownx.magiclink:
   - pymdownx.extra:
-
 plugins:
   - search
   - glightbox
@@ -76,4 +69,3 @@ plugins:
       contributors:
         - email: oli@olillin.com
           image: 'https://avatars.githubusercontent.com/u/55047947?s=400'
-

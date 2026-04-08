@@ -1,25 +1,15 @@
-# Format checks for Markdown and Nix files
-name: Format
+# Format checks for Nix
+name: Format Nix
 on:
   push:
     paths:
-      - "**/*.md"
       - "**/*.nix"
   pull_request:
     paths:
-      - "**/*.md"
       - "**/*.nix"
 permissions:
   contents: read
 jobs:
-  check-markdown:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install Nix
-        uses: cachix/install-nix-action@v25
-      - name: Check Markdown formatting
-        run: nix develop --command mdformat --check .
   check-nix:
     runs-on: ubuntu-latest
     steps:
@@ -28,4 +18,3 @@ jobs:
         uses: cachix/install-nix-action@v25
       - name: Check Nix formatting
         run: nix develop --command alejandra --check .
-

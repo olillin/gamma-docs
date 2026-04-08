@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   build:
     name: Deploy docs
@@ -11,11 +10,9 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v2
-
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_DOMAIN: gamma-docs.olillin.com
           REQUIREMENTS: requirements.txt
-

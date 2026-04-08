@@ -8,13 +8,13 @@ number = true
 end_of_line = "lf"
 
 # Extensions
-extensions = [
-    "mkdocs",
-    "footnote",
-	"tables",
+extensions = [ #
+  "mkdocs",
+  "footnote",
+  "tables",
 ]
 
-codeformatters = [
-	"json",
-	# "yaml",
+codeformatters = [ #
+  "json",
+  # "yaml",
 ]
