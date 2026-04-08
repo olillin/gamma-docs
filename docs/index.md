@@ -9,11 +9,11 @@ Gamma API.
 It was written by Cal to demistify how to use and integrate with Gamma after
 painstakingly figuring out how to do so without proper documentation.
 
-/// warning | This documentation may be inaccurate
+!!! warning "This documentation may be inaccurate"
 
-As I (Cal) am not a Gamma administrator I have limited ability to test and
-document the features of Gamma. Parts of the documentation may therefore be
-limited or inaccurate. ///
+    As I (Cal) am not a Gamma administrator I have limited ability to test and
+    document the features of Gamma. Parts of the documentation may therefore be
+    limited or inaccurate.
 
 ### Contributing
 

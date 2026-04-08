@@ -1,2 +1,3 @@
+mkdocs-glightbox==0.5.2
 neoteroi-mkdocs==1.1.3
 pymdown-extensions==10.16.1

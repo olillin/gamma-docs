@@ -8,17 +8,7 @@ external accounts like GSuite and Bitwarden with Gamma.
 | API Key Type   | `ACCOUNT_SCAFFOLD`                                                                                                                                                                     |
 | API Controller | [AccountScaffoldV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/accountscaffold/AccountScaffoldV1ApiController.java) |
 
-## Table of Contents
-
-1. [Types](#types)
-    1. [User](#user)
-    2. [Super group](#super-group)
-    3. [Group](#group)
-    4. [User post](#user-post)
-    5. [Post](#post)
-2. [Endpoints Reference](#endpoints-reference)
-    1. [GET /users](#get-users)
-    2. [GET /supergroups](#get-supergroups)
+[TOC]
 
 ## Types
 

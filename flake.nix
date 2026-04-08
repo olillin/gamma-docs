@@ -65,6 +65,7 @@
 
             # MkDocs with extensions
             mkdocs
+            mkdocs-glightbox
             mkdocs-material
             neoteroi-mkdocs
             pymdown-extensions

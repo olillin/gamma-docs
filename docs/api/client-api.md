@@ -13,23 +13,7 @@ to as a "user of the client".
     The `email` scope does *not* make e-mails visible in the client API. Use the
     [OpenID](openid.md) or [Account Scaffold](account-scaffold-api.md) API instead.
 
-## Table of Content
-
-1. [Client Authorities](#client-authorities)
-2. [Types](#types)
-    1. [User](#user)
-    2. [Group](#group)
-    3. [Group with Post](#group-with-post)
-    4. [Post](#post)
-    5. [Super Group](#super-group)
-3. [Endpoints Reference](#endpoints-reference)
-    1. [GET /users](#get-users)
-    2. [GET /users/{id}](#get-usersid)
-    3. [GET /groups](#get-groups)
-    4. [GET /groups/for/{id}](#get-groupsforid)
-    5. [GET /superGroups](#get-supergroups)
-    6. [GET /authorities](#get-authorities)
-    7. [GET /authorities/for/{id}](#get-authoritiesforid)
+[TOC]
 
 ## Client Authorities
 
@@ -535,4 +519,4 @@ Request: `GET /authorities/2f63a363-af22-480d-be49-531c1831933c`
 </details>
 
 [^1]: `is_admin` property in `backend/src/index.ts`. cthit/bookIT-node on GitHub —
-    https://github.com/cthit/bookIT-node/blame/2378a279d047edffb0d1e967904e9fcf3824fa17/backend/src/index.ts#L46
+    <https://github.com/cthit/bookIT-node/blame/2378a279d047edffb0d1e967904e9fcf3824fa17/backend/src/index.ts#L46>

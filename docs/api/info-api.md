@@ -9,19 +9,7 @@ on corresponding pages.
 | API Key Type   | `INFO`                                                                                                                                                |
 | API Controller | [InfoV1ApiController](https://github.com/cthit/Gamma/blob/main/app/src/main/java/it/chalmers/gamma/adapter/primary/api/info/InfoV1ApiController.java) |
 
-## Table of Contents
-
-1. [Types](#types)
-    1. [User with Groups](#user-with-groups)
-    2. [User](#user)
-    3. [Group with Post](#group-with-post)
-    4. [Super Group](#super-group)
-    5. [Blob](#blob)
-    6. [Blob Super Group](#blob-super-group)
-    7. [Blob Member](#blob-member)
-2. [Endpoints Reference](#endpoints-reference)
-    1. [GET /users/{id}](#get-usersid)
-    2. [GET /blob](#get-blob)
+[TOC]
 
 ## Types
 

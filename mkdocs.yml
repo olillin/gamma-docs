@@ -25,12 +25,23 @@ theme:
 
 extra_css:
   - css/neoteroi-mkdocs.css
+  - css/toc.css
 
 markdown_extensions:
   - admonition:
+  - toc:
+      title: 'Table of Contents'
+      permalink: true
+      toc_depth: '2-3'
+  - pymdownx.details:
+  - pymdownx.magiclink:
   - pymdownx.extra:
 
 plugins:
   - search
-  - neoteroi.contribs
+  - glightbox
+  - neoteroi.contribs:
+      contributors:
+        - email: oli@olillin.com
+          image: 'https://avatars.githubusercontent.com/u/55047947?s=400'
 

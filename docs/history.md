@@ -62,16 +62,16 @@ repository. It is planned to be released a year after Gamma v3.
 
 [^1]: Theo is still developing Gamma — https://github.com/cthit/Gamma/issues/941
 
-[^2]: https://github.com/cthit/auth
+[^2]: <https://github.com/cthit/auth>
 
-[^3]: https://github.com/cthit/chalmersit-account-rails
+[^3]: <https://github.com/cthit/chalmersit-account-rails>
 
 [^4]: Deprecating ldap-auth — <https://github.com/cthit/ldap-auth/pull/3>
 
-[^5]: https://github.com/cthit/KeepIT/blame/3522439de0c52d1e691afdca0e96432da89e1f58/backend/src/github.com/cthit/KeepIT/web/beta_auth.go#L36
+[^5]: <https://github.com/cthit/KeepIT/blame/3522439de0c52d1e691afdca0e96432da89e1f58/backend/src/github.com/cthit/KeepIT/web/beta_auth.go#L36>
 
 [^6]: Using RDC v1.0, using proxy during development, added max-length to user
     inputs, authenticating users with Gamma and saves access token in cookie —
-    https://github.com/cthit/SuggestIT/pull/43
+    <https://github.com/cthit/SuggestIT/pull/43>
 
-[^7]: Gamma v2.0 — https://github.com/cthit/Gamma/pull/853
+[^7]: Gamma v2.0 — <https://github.com/cthit/Gamma/pull/853>
