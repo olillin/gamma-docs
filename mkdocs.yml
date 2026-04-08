@@ -1,7 +1,7 @@
 site_name: Gamma Docs
 site_description: Documentation for Gamma, the authentication and authorization service for the Software Engineering Student Division (IT) at Chalmers.
 repo_url: https://github.com/olillin/gamma-docs
-edit_uri: blob/main/docs/
+edit_uri: edit/main/docs/
 
 nav:
   - Home: index.md
@@ -10,6 +10,7 @@ nav:
     - 'api/authorization.md'
     - 'api/openid.md'
     - 'api/client-api.md'
+    - 'api/client-api-openapi.md'
     - 'api/info-api.md'
     - 'api/account-scaffold-api.md'
     - 'api/allow-list-api.md'
@@ -22,6 +23,35 @@ nav:
 theme:
   name: material
   locale: en
+  features:
+    - content.action.view
+    - content.action.edit
+  icon:
+    edit: material/pencil 
+    view: material/code-tags
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: green
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 extra_css:
   - css/neoteroi-mkdocs.css
@@ -40,6 +70,8 @@ markdown_extensions:
 plugins:
   - search
   - glightbox
+  - swagger-ui-tag:
+      tryItOutEnabled: true
   - neoteroi.contribs:
       contributors:
         - email: oli@olillin.com
