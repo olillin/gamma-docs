@@ -6,3 +6,15 @@ number = true
 
 # Use LF as line ending
 end_of_line = "lf"
+
+# Extensions
+extensions = [
+    "mkdocs",
+    "footnote",
+	"tables",
+]
+
+codeformatters = [
+	"json",
+	# "yaml",
+]

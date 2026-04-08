@@ -1,9 +1,9 @@
 # History of Gamma
 
-> [!WARNING]
->
-> This page is still incomplete and many details are missing. Contributions are
-> much appreciated!
+!!! warning | Incomplete page
+
+This page is still incomplete and many details are missing. Contributions are
+much appreciated!
 
 The current account system, Gamma v2, is the fourth iteration of an account
 system for the Software Engineering Student Division (IT) at Chalmers. It was

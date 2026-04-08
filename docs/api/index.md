@@ -2,10 +2,10 @@
 
 "The Gamma API" actually consists of 4 APIs with different purposes:
 
-- [Client API](./CLIENT-API.md) for users logged in to a client.
-- [Info API](./INFO-API.md) to get data as a client without a user.
-- [Allow List API](./ALLOW-LIST-API.md) for managing the allow list.
-- [Account Scaffold API](./ACCOUNT-SCAFFOLD-API.md)
+- [Client API](client-api.md) for users logged in to a client.
+- [Info API](info-api.md) to get data as a client without a user.
+- [Allow List API](allow-list-api.md) for managing the allow list.
+- [Account Scaffold API](account-scaffold-api.md)
 
 See the more details about the different APIs in their respective documents.
 

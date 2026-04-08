@@ -1,0 +1,36 @@
+site_name: Gamma Docs
+site_description: Documentation for Gamma, the authentication and authorization service for the Software Engineering Student Division (IT) at Chalmers.
+repo_url: https://github.com/olillin/gamma-docs
+edit_uri: blob/main/docs/
+
+nav:
+  - Home: index.md
+  - API Reference:
+    - 'api/index.md'
+    - 'api/authorization.md'
+    - 'api/openid.md'
+    - 'api/client-api.md'
+    - 'api/info-api.md'
+    - 'api/account-scaffold-api.md'
+    - 'api/allow-list-api.md'
+  - 'website.md'
+  - 'history.md'
+  - Links:
+    - Gamma: 'https://auth.chalmers.it'
+    - Gamma GitHub Repository: 'https://github.com/cthit/Gamma'
+
+theme:
+  name: material
+  locale: en
+
+extra_css:
+  - css/neoteroi-mkdocs.css
+
+markdown_extensions:
+  - admonition:
+  - pymdownx.extra:
+
+plugins:
+  - search
+  - neoteroi.contribs
+

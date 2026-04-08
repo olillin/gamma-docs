@@ -37,28 +37,28 @@ email: string
 
 ```json
 {
-	"sub": "2f63a363-af22-480d-be49-531c1831933c",
-	"iss": "https://auth.chalmers.it",
-	"aud": [
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"
-	],
-	"scope": [
-	  "openid",
-	  "profile",
-	  "email"
-	],
-	"jti": "06002dfd-95b3-492a-8bd9-99aa569dabce",
-    "iat": 1775571939,
-	"exp": 1775572239,
-	"nbf": 1775571939,
-	"cid": "janed",
-	"nickname": "Dough",
-	"family_name": "Doe",
-	"given_name": "Jane",
-	"name": "Jane 'Dough' Doe",
-	"locale": "sv",
-	"picture": "https://auth.chalmers.it/images/user/avatar/2f63a363-af22-480d-be49-531c1831933c",
-	"email": "janed@chalmers.se"
+  "sub": "2f63a363-af22-480d-be49-531c1831933c",
+  "iss": "https://auth.chalmers.it",
+  "aud": [
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234"
+  ],
+  "scope": [
+    "openid",
+    "profile",
+    "email"
+  ],
+  "jti": "06002dfd-95b3-492a-8bd9-99aa569dabce",
+  "iat": 1775571939,
+  "exp": 1775572239,
+  "nbf": 1775571939,
+  "cid": "janed",
+  "nickname": "Dough",
+  "family_name": "Doe",
+  "given_name": "Jane",
+  "name": "Jane 'Dough' Doe",
+  "locale": "sv",
+  "picture": "https://auth.chalmers.it/images/user/avatar/2f63a363-af22-480d-be49-531c1831933c",
+  "email": "janed@chalmers.se"
 }
 ```
 
