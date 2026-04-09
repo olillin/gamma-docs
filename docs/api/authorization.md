@@ -24,7 +24,7 @@ Clients must use all scopes which they have, or else a
 [mismatched scopes](../website.md#mismatched-scopes) error will be presented to
 the user. All clients have the `openid` and `profile` scopes by default and the
 `email` scope if the client was created with the
-[Include email scope](../website.md#creating-a-gamma-user-client) option.
+[Include email scope](../website.md#creating-a-user-client) option.
 
 | Scope     | Gives access to                                     |
 | --------- | --------------------------------------------------- |
@@ -40,8 +40,8 @@ more details about the flow itself, see
 
 The Client Credentials Flow uses an API key to authorize requests to Gamma
 without a user having to log in. When a client is created with the
-[Generate api key](../website.md#creating-a-gamma-user-client) option an API key
-is generated. All API keys have an ID and a key which together are sent in the
+[Generate api key](../website.md#creating-a-user-client) option an API key is
+generated. All API keys have an ID and a key which together are sent in the
 `Authorization` header to authenticate the client. The API key is sent in the
 following format:
 

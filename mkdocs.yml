@@ -4,17 +4,18 @@ repo_url: https://github.com/olillin/gamma-docs
 edit_uri: edit/main/docs/
 nav:
   - Home: index.md
+  - quickstart.md
   - API Reference:
-      - 'api/index.md'
-      - 'api/authorization.md'
-      - 'api/openid.md'
-      - 'api/client-api.md'
-      - 'api/client-api-openapi.md'
-      - 'api/info-api.md'
-      - 'api/account-scaffold-api.md'
-      - 'api/allow-list-api.md'
-  - 'website.md'
-  - 'history.md'
+      - api/index.md
+      - api/authorization.md
+      - api/openid.md
+      - api/client-api.md
+      - api/client-api-openapi.md
+      - api/info-api.md
+      - api/account-scaffold-api.md
+      - api/allow-list-api.md
+  - website.md
+  - history.md
   - Links:
       - Gamma: 'https://auth.chalmers.it'
       - Gamma GitHub Repository: 'https://github.com/cthit/Gamma'
@@ -52,14 +53,15 @@ extra_css:
   - css/neoteroi-mkdocs.css
   - css/toc.css
 markdown_extensions:
-  - admonition:
+  - admonition
   - toc:
       title: 'Table of Contents'
       permalink: true
       toc_depth: '2-3'
-  - pymdownx.details:
-  - pymdownx.magiclink:
-  - pymdownx.extra:
+  - pymdownx.blocks.caption
+  - pymdownx.details
+  - pymdownx.extra
+  - pymdownx.magiclink
 plugins:
   - search
   - glightbox

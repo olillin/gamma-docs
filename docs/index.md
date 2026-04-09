@@ -6,8 +6,9 @@ This document is is aimed at developers looking to use the Gamma API to provide
 their users with the ability to login with Gamma and/or to fetch data from the
 Gamma API.
 
-It was written by Cal to demistify how to use and integrate with Gamma after
-painstakingly figuring out how to do so without proper documentation.
+It was written by [Cal](https://github.com/olillin) to demistify how to use and
+integrate with Gamma after painstakingly figuring out how to do so without
+proper documentation.
 
 !!! warning "This documentation may be inaccurate"
 
@@ -79,5 +80,6 @@ all users.
 
 ## Further Reading
 
+- [Quickstart Guide](quickstart.md)
 - [API Reference](api/index.md)
 - [History of Gamma](history.md)

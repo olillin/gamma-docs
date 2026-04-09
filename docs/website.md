@@ -10,7 +10,7 @@ configuration.
 This section describes how to create and manage a
 [User Client](index.md#user-clients).
 
-### Creating a Gamma User Client
+### Creating a User Client
 
 !!! info
 
