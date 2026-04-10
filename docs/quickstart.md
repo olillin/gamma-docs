@@ -6,7 +6,13 @@ OAuth 2.0 and the [OpenID API](api/openid.md), similar to the
 [Cal](https://github.com/olillin).
 
 If you have not done so already, follow the guide on
-[Creating a User Client](website.md#creating-a-user-client).
+[Creating a User Client](website.md#creating-a-user-client) and use
+
+```
+http://localhost:8000/callback
+```
+
+as the **Redirect URI**.
 
 [TOC]
 
@@ -42,7 +48,7 @@ Got all that? Great! The authorization flow we will implement looks like this:
     your **Redirect URI**. Assuming the client is approved an **Authorization
     Code** will be included in the `code` query parameter. Your client then
     sends the code to the Gamma API together with the client credentials.
-5. Gamma responds with an **Access Token**, hooray!
+5. Gamma responds with an **Access Token**. Hooray!
 
 ![Authorization code flow diagram](images/authorization-code-flow-dark.png#only-dark)
 ![Authorization code flow diagram](images/authorization-code-flow-light.png#only-light)
@@ -52,16 +58,21 @@ Diagram of the Authorization Code Flow in Gamma.
 ///
 
 Read more about authorizing with the Gamma API on the dedicated
-[Authorization](api/authorization) page.
+[Authorization](api/authorization.md) page.
 
-## Getting Started
+## Follow Along
 
-If you want to follow along you can clone the Git repository at: `// TODO`
+If you want to follow along you can clone the Git repository at
+<https://github.com/olillin/gamma-quickstart>:
 
-You will need to install Node.js® from the
-[official downloads page](https://nodejs.org/en/download). If you are using
-[Nix](https://nixos.org), just run `nix develop` to use the development shell
-provided by the flake.
+```console
+git clone https://github.com/olillin/gamma-quickstart
+```
+
+We will be building the website with
+[TypeScript](https://www.typescriptlang.org) and Node.js®. You can get it from
+the [official downloads page](https://nodejs.org/en/download) or if you are
+using [Nix](https://nixos.org), just run `nix develop`.
 
 Then run this command in your terminal to install all dependencies:
 
@@ -69,26 +80,106 @@ Then run this command in your terminal to install all dependencies:
 npm install -D
 ```
 
-This will (among others) install [gammait](https://npmx.dev/gammait), a Gamma
-API Client for Node.js® which we will use for this guide.
-
 To start a development server run this command in your terminal:
 
 ```console
 npm run dev
 ```
 
-Wait a bit and then click the printed URL. You should see a mostly empty page
-with a "Hello Gamma Login!". Let's implement login!
+Now go to <http://localhost:8000>. You should see a mostly empty page with a
+"Hello Gamma Quickstart!" in the middle, this is the page we will be adding
+login to.
 
 !!! tip
 
     **Keep the terminal open** and the website will reload automatically when you
     update the source code.
 
+## Getting Started
+
 `// TODO: Explain/mention backend endpoints`
 
+Opening the `src/app.ts` file we can see the route for our website homepage.
+This is a function which will handle requests to the path `/`, the homepage of
+our website.
+
+```typescript title="src/app.ts"
+app.get('/', (req, res) => {
+    res.render('home')
+})
+```
+
+The `req` parameter contains request parameters like our **Authorization Code**.
+The `res` parameter has many functions which tells
+
 ## Adding Login
+
+To initate the login we will create a new route at `/login` which will create
+the **Authorization URL** and redirect the user. Edit the home in `home.hbs`
+page and add the button:
+
+```html title="src/home.hbs"
+ <main>
+ 
+     <h1>Hello Gamma Quickstart!</h1>
++    <a href="/login">Login</a>
+
+ </main>
+```
+
+To communicate with Gamma we will use the [gammait](https://npmx.dev/gammait)
+library, a Gamma API Client for Node.js®.
+
+Create an **Authorization Code Flow** client:
+
+=== "gammait"
+
+    ```typescript title="src/app.ts"
+    import { AuthorizationCode } from 'gammait'
+
+    const clientId = process.env.CLIENT_ID
+    const clientSecret = process.env.CLIENT_SECRET
+    const redirectUri = process.env.REDIRECT_URI
+
+    const client = new AuthorizationCode({
+        clientId: clientId,
+        clientSecret: clientSecret,
+        redirectUri: redirectUri,
+        scope: ["openid", "profile"]
+    })
+
+    app.get('/login', (req, res) => {
+        const authorizationUrl = client.authorizeUrl()
+
+        res.redirect(authorizationUrl)
+    })
+    ```
+
+=== "openid-client"
+
+    ```typescript title="src/app.ts"
+    import * as client from 'openid-client'
+
+    const server = "https://auth.chalmers.it"
+    const clientId = process.env.CLIENT_ID!
+    const clientSecret = process.env.CLIENT_SECRET!
+    const redirectUri = process.env.REDIRECT_URI!
+
+    const config: client.Configuration = await client.discovery({
+        server,
+        clientId,
+        clientSecret,
+    })
+
+    app.get('/login', (req, res) => {
+        const authorizationUrl = client.buildAuthorizationUrl(config, {
+            redirectUri: redirectUri,
+            scope: "openid profile",
+        })
+
+        res.redirect(authorizationUrl)
+    })
+    ```
 
 ## Handling Failed Login
 
@@ -113,7 +204,7 @@ Now that the user has logged in to the client we can use their id in requests to
 other Gamma APIs. Let's get the groups the user is part of using the
 [Client API](api/client-api.md):
 
-```typescript
+```typescript title="src/app.ts"
 // ...
 
 import { ClientApi } from 'gammait'
@@ -129,7 +220,7 @@ const clientApi = new ClientApi({
 	apiKey: apiKey
 })
 
-app.get('/profile', async (req, res) => {
+app.get('/profile(1)', async (req, res) => {
     // ...
 	const profile: UserInfo = await authorizedClient.userInfo()
 	
@@ -145,5 +236,7 @@ app.get('/profile', async (req, res) => {
     // ...
 })
 ```
+
+1. Will be visible at <http://localhost:8000/profile>.
 
 `// TODO`

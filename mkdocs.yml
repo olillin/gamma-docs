@@ -22,9 +22,14 @@ nav:
 theme:
   name: material
   locale: en
+  language: en
   features:
     - content.action.view
     - content.action.edit
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
   icon:
     edit: material/pencil
     view: material/code-tags
@@ -49,10 +54,14 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+extra:
+  annotate:
+    typescript: ['.c1', '.s1']
 extra_css:
   - css/neoteroi-mkdocs.css
   - css/toc.css
 markdown_extensions:
+  - attr_list
   - admonition
   - toc:
       title: 'Table of Contents'
@@ -61,7 +70,13 @@ markdown_extensions:
   - pymdownx.blocks.caption
   - pymdownx.details
   - pymdownx.extra
-  - pymdownx.magiclink
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
 plugins:
   - search
   - glightbox
