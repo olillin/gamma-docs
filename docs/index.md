@@ -10,12 +10,6 @@ It was written by [Cal](https://github.com/olillin) to demistify how to use and
 integrate with Gamma after painstakingly figuring out how to do so without
 proper documentation.
 
-!!! warning "This documentation may be inaccurate"
-
-    As I (Cal) am not a Gamma administrator I have limited ability to test and
-    document the features of Gamma. Parts of the documentation may therefore be
-    limited or inaccurate.
-
 ### Contributing
 
 Contributions to this document are welcome and much appreciated. Contact Cal or
@@ -48,9 +42,10 @@ documentation. If you are unfamiliar with it,
 [this article](https://auth0.com/intro-to-iam/what-is-oauth-2) by Auth0 serves
 as a good starting point.
 
-To access Gamma's APIs a client is required to identify your application. The
-client is how your service is represented in Gamma and is what is displayed to
-users when authorizing ("logging in") to your service.
+A client allows access to Gamma through the [Client API](./api/client-api.md)
+and [Authorization Code flow](./api/authorization.md#authorization-code-flow).
+It identifies your application in Gamma and is shown to users when authorizing
+("logging in to") your service.
 
 ### Types of clients
 
@@ -59,10 +54,16 @@ Gamma has two types of clients, *User clients* and *Official clients*.
 #### User Clients
 
 A *user client* can be created by anyone with a Gamma account but is limited
-compared to an official client. User clients can only access parts of the \[Info
-API\] and can only fetch data from users who have authorized the client. A
-warning is also shown to users when authorizing a user client with information
-about who the client belongs to.
+compared to an official client. User clients can only access parts of the
+[Info API](./api/info-api.md) and can only fetch data from users who have
+authorized the client.
+
+`// TODO: Update what they can access. Can they really access the info API?`
+
+As any Gamma user can create a user client caution should be given when
+authorizing them. That is why [a warning](./website.md#the-authorization-page)
+is shown to users when authorizing a user client saying who the client belongs
+to.
 
 #### Official Clients
 
@@ -70,13 +71,13 @@ To do more you must be a Gamma administrator and create an *official client*.
 These clients have unrestricted access to the Gamma API and can fetch data from
 all users.
 
-### The Client Page
+`// TODO: Update access`
 
-### Authorizing your Client
+##### Super Group Restrictions
 
-> NOTE TO SELF: This section will include how to generate an authorization URL,
-> how to use this (simply redirecting users to it) and how to generate a token
-> from your code.
+Official clients can also add **Restrictions** on which super groups are allowed
+to authorize the client. Users that are not in any of these groups will see
+[an error screen](./website.md#missing-access).
 
 ## Further Reading
 

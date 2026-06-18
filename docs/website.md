@@ -36,7 +36,7 @@ Gamma client:
 | Swedish description | A short description in Swedish explaining what your client is for. Appears on the ["**Your accepted clients**"](https://auth.chalmers.it/me/accepted-clients) page for users with Swedish as their preferred language.                         |
 | English description | A short description in English explaining what your client is for. Appears on the ["**Your accepted clients**"](https://auth.chalmers.it/me/accepted-clients) page for users with English as their preferred language.                         |
 | Redirect url        | This is the URL that users will be redirected to after authorizing your client as part of the OAuth flow. You can read more about redirect URLs in [this article by OAuth 2.0 Simplified](https://www.oauth.com/oauth2-servers/redirect-uris). |
-| Generate api key    | Whether or not an API key should be created for this client, this cannot be done after creating your client. An API key is required for the [Client Credentials](api/authorization.md#client-credentials-flow) authorization flow.             |
+| Generate api key    | Whether or not an API key should be created for this client, this cannot be done after creating your client. An API key is required for the [API key authorization](api/authorization.md#api-keys).                                            |
 | Include email scope | Select this option if you need access to the email adress of your users. Read more in the [scopes](api/authorization.md#scopes) section.                                                                                                       |
 
 ![Creating a new client](images/web/gamma-client/creation-menu.jpg)
@@ -78,6 +78,32 @@ You can also add users to the authority:
 
 ![Adding users to the client authority](images/web/gamma-client/client-authority-users.jpg)
 
+## Official Clients
+
+This section describes how to create and manage an
+[Official Client](index.md#official-clients).
+
+### Creating an Official Client
+
+Only Gamma administrators can create an official client. It is similar to
+[Creating a User Client](#creating-a-user-client) except for being on the
+**Official Clients** page instead, or directly at
+<https://auth.chalmers.it/clients/create>.
+
+When creating an official client there is an additional option to add
+[Super Group Restrictions](index.md#super-group-restrictions).
+
+![Creating a new official client](images/web/gamma-client/restrictions-creation.jpg)
+
+After the client is created you can view the restrictions below **Client
+Details**.
+
+![Super group restrictions in client details](images/web/gamma-client/restrictions-details.jpg)
+
+### Editing an official client
+
+See [Editing your client](#editing-your-client).
+
 ## The Authorization Page
 
 When authorizing a client the user will be presented with the following
@@ -102,6 +128,14 @@ If the requested scopes do not match the registered client scopes the user will
 instead see this error screen.
 
 ![Mismatched scopes for client error](images/web/mismatched-scopes.jpg)
+
+### Missing Access
+
+If the authorizing an [Official Client](./index.md#official-clients) with
+[Super Group Restrictions](./index.md#super-group-restrictions) the user will
+see this error screen if they are not in at least one of the super groups.
+
+![Missing access to client](images/web/missing-access.jpg)
 
 [^1]: Comment by Portals on cthit/Gamma issue #943 on GitHub, *Add ability to edit
     client details* —
