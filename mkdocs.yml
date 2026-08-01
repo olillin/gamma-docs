@@ -1,5 +1,6 @@
 site_name: Gamma Docs
 site_description: Documentation for Gamma, the authentication and authorization service for the Software Engineering Student Division (IT) at Chalmers.
+site_url: https://gamma-docs.olillin.com
 repo_url: https://github.com/olillin/gamma-docs
 edit_uri: edit/main/docs/
 nav:
@@ -30,6 +31,8 @@ theme:
     - content.code.copy
     - content.code.select
     - content.tabs.link
+    - navigation.instant
+    - navigation.expand
   icon:
     edit: material/pencil
     view: material/code-tags
