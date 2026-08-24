@@ -12,8 +12,8 @@ and [Client authorization using API keys](#client-authorization-using-api-keys).
 
 ### Authorization Code Flow
 
-This OAuth 2.0 Authorization Code flow is used when accessing protected
-resources belonging to the end-user, such as when
+The OAuth 2.0 Authorization Code flow is used when accessing protected resources
+belonging to the user, such as when
 [authenticating](https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization)
 a user (verifying who they are) by fetching their
 [user info](./openid.md#get-oauth2userinfo).
@@ -46,13 +46,14 @@ Authorization: Bearer <ACCESS TOKEN>
 
 #### Scopes
 
-Client scopes are sent to Gamma in the authorization URL as the `scope` query
-parameter. Scopes allow a client to access personal information of users.
-Clients must use all scopes which they have, or else a
-[mismatched scopes](../website.md#mismatched-scopes) error will be presented to
-the user. All clients have the `openid` and `profile` scopes by default and the
-`email` scope if the client was created with the
-[Include email scope](../website.md#creating-a-user-client) option.
+Scopes specify which information a client is allowed to access.
+
+Scopes are sent to Gamma in the authorization URL as the `scope` query
+parameter. Clients must request all scopes they are approved for when
+authorizing, or else a [mismatched scopes](../website.md#mismatched-scopes)
+error will be presented to the user. All clients have the `openid` and `profile`
+scopes by default, the `email` scope is available if the client was created with
+the [Include email scope](../website.md#creating-a-user-client) option.
 
 | Scope     | Gives access to                                     |
 | --------- | --------------------------------------------------- |
