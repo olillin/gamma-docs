@@ -1,0 +1,32 @@
+     
+          ╭──────────────╮
+          │              │
+          │  Resource    │
+          │  Owner/User  │
+          │              │
+          ╰──────────────╯
+                
+             │   │
+            (1) User presses Login button
+             │   │
+             │  (3) User sees login screen
+             │   │
+             │   
+          ╭──│───────────╮          Client Id              ╭───────────╮
+          │  ┊    ╭┈┈┈┈┈┈─────(2)── & Redirect URI ───────│           │
+          │  ┊    ┊      │                                 │           │
+          │   Browser    │───(3)── User authenticates ───│   Gamma   │
+          │  ┊    ┊      │                                 │           │
+          │  ┊    ┊    ╭┈─────(4)── Authorization Code ───│           │
+          ╰──│────│────│─╯                                 ╰───────────╯
+             │    │    │                                           
+            (1)  (2)  (4)                                     │     │
+             │    │    │                                      │     │
+                     │                                      │     │
+          ╭────────────│─╮                                    │     │
+          │            ╰──────(4)── Authorization Code ───────╯     │
+          │    Client    │          & Redirect URI                  │
+          │              │                                          │
+          │              │───(5)───── Access Token ────────────────╯
+          ╰──────────────╯
+
