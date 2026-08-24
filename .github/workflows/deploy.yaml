@@ -11,7 +11,7 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v7
       - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@1.26
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CUSTOM_DOMAIN: gamma-docs.olillin.com
