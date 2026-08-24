@@ -17,6 +17,8 @@ These are the types used in the Account Scaffold API.
 
 ### User
 
+Describes a Gamma user.
+
 ```yaml
 email: string
 cid: string
@@ -38,6 +40,8 @@ lastName: string
     ```
 
 ### Super group
+
+Describes a Gamma super group with subgroups and their members.
 
 ```yaml
 name: string
@@ -98,6 +102,8 @@ groups: Group[]
 
 ### Group
 
+Describes a Gamma group and its members.
+
 ```yaml
 name: string
 prettyName: string
@@ -147,6 +153,8 @@ members: UserPost[]
 
 ### User post
 
+Describes a Gamma user and their post in a group.
+
 ```yaml
 user: User
 post: Post
@@ -173,6 +181,8 @@ post: Post
     ```
 
 ### Post
+
+Describes a Gamma post in a group.
 
 ```yaml
 postId: UUID

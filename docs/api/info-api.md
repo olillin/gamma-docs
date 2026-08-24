@@ -18,6 +18,8 @@ These are the types used in the Info API.
 
 ### User with Groups
 
+Describes a user and the groups they are in.
+
 ```yaml
 user: User
 groups: GroupWithPost[]
@@ -67,6 +69,8 @@ groups: GroupWithPost[]
 
 ### User
 
+Describes a Gamma user.
+
 ```yaml
 id: UserId
 cid: string
@@ -90,6 +94,8 @@ acceptanceYear: int
     ```
 
 ### Group with Post
+
+Describes a Gamma group and the post a member of it has.
 
 ```yaml
 group:
@@ -138,6 +144,8 @@ post:
 
 ### Super Group
 
+Describes a Gamma super group.
+
 ```yaml
 id: SuperGroupId
 version: int
@@ -162,6 +170,8 @@ enDescription: string
     ```
 
 ### Blob
+
+Describes a blob of information about super groups and their members.
 
 ```yaml
 type: "alumni" | "committee" | "functionaries" | "society"
@@ -227,6 +237,8 @@ superGroup: BlobSuperGroup[]
     ```
 
 ### Blob Super Group
+
+Describes a super group listed in a blob.
 
 ```yaml
 superGroup:
@@ -295,6 +307,8 @@ members: BlobMember[]
     ```
 
 ### Blob Member
+
+Describes a member of a super group blob.
 
 ```yaml
 user: User

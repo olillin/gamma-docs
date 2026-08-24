@@ -25,6 +25,8 @@ These are the types used in the Allow List API.
 
 ### Success Response
 
+Describes a successful response from the API.
+
 ```yaml
 name: string # Class name of the response
 code: int # HTTP status code

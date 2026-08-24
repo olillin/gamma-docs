@@ -10,6 +10,8 @@ for more information about these types.
 
 ### User Info
 
+Represents information about an authenticated user and the token used.
+
 ```yaml
 # Required 'openid' scope
 sub: UserId # Gamma user ID
@@ -71,7 +73,9 @@ controller. All endpoints in this section are therefore relative to
 
 ### GET /oauth2/userinfo
 
-Get the UserInfo of of the client. See also
+Get information about the authenticated user and the token used.
+
+See also the description from
 [5.3. UserInfo Endpoint](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo)
 in the OpenID specification:
 

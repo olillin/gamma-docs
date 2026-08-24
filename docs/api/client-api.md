@@ -96,6 +96,8 @@ superGroup: SuperGroup
 
 ### Group with Post
 
+Describes a Gamma group and the post a member of it has.
+
 ```yaml
 id: GroupId
 name: string
@@ -129,6 +131,8 @@ post: Post
     ```
 
 ### Post
+
+Describes a Gamma post in a group.
 
 ```yaml
 id: PostId
