@@ -175,7 +175,7 @@ Describes a blob of information about super groups and their members.
 
 ```yaml
 type: "alumni" | "committee" | "functionaries" | "society"
-superGroup: BlobSuperGroup[]
+superGroups: BlobSuperGroup[]
 ```
 
 ??? example
