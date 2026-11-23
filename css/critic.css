@@ -1,0 +1,4 @@
+/* Remove text decorations from Critic Markup. */
+.critic {
+	text-decoration: none;
+}

@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: Gamma Client API
+  description: >
+    Get information about users who have authorized the client, hereafter referred to as a "user of the client".
+
+  version: v1
+servers:
+  - url: https://auth.chalmers.it/api/client/v1
+    description: "Official Client API"
+paths:
+  /users/{id}:
+    get:
+      operationId: getAUser
+      summary: Get a user
+      parameters:
+        - $ref: "#/components/parameters/id"
+      tags:
+        - Users
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+          links:
+            GetUserGroups:
+              operationId: getUserGroups
+              parameters:
+                id: "$response.body#/id"
+              description: >
+                The `id` value returned in the response can be used as the `id` parameter in `GET /groups/for/{id}`.
+
+      description: Get basic information about a user of the client.
+  /groups/for/{id}:
+    get:
+      operationId: getGroupsForUser
+      summary: Get groups for a user
+      parameters:
+        - $ref: "#/components/parameters/id"
+      tags:
+        - Groups
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+          links:
+            GetUserGroups:
+              operationId: getGroupsForUser
+              parameters:
+                id: "$response.body#/id"
+              description: >
+                The `id` value returned in the response can be used as the `id` parameter in `GET /groups/for/{id}`.
+
+      description: Get basic information about a user of the client.
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: 'Use OAuth 2 pre-shared API key authentication.<br/>In the format `pre-shared apiKey:keyId`'
+  parameters:
+    id:
+      name: id
+      in: path
+      description: The user UUID
+      schema:
+        type: string
+        example: 2f63a363-af22-480d-be49-531c1831933c
+      explode: false
+      style: simple
+      allowReserved: false
+      allowEmptyValue: true
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The Gamma UUID which identifies the user.
+          example: 2f63a363-af22-480d-be49-531c1831933c
+        cid:
+          type: string
+          description: The CID (Chalmers ID) of the user.
+          example: janed
+        nick:
+          type: string
+          description: Nick, nickname at Chalmers.
+          example: Dough
+        firstName:
+          type: string
+          description: First name, given name.
+          example: Jane
+        lastName:
+          type: string
+          description: Last name, family name.
+          example: Doe
+        acceptanceYear:
+          type: number
+          description: Year when the user begun the Software Engineering programme.
+          example: 2025
+      required:
+        - id
+        - cid
+        - nick
+        - firstName
+        - lastName
+        - acceptanceYear
+      example:
+        id: 2f63a363-af22-480d-be49-531c1831933c
+        cid: janed
+        nick: Dough
+        firstName: Jane
+        lastName: Doe
+        acceptanceYear: 2025
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: Users
+    description: User operations
+  - name: Groups
+    description: Group operations
